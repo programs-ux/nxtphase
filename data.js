@@ -76,7 +76,7 @@ const COURSES = [
     id: 'growth-mindset',
     title: 'Growth Mindset: Entering Your NXT Phase',
     pillar: 'personal',
-    level: 'Beginner',
+    level: 'Foundational',
     minutes: 40,
     desc: 'Learn how the way you think about ability shapes what you achieve — and how to rewire self-talk so setbacks become fuel.',
     objectives: [
@@ -133,7 +133,7 @@ const COURSES = [
     id: 'emotional-intelligence',
     title: 'Emotional Intelligence Essentials',
     pillar: 'personal',
-    level: 'Beginner',
+    level: 'Core',
     minutes: 45,
     desc: 'Understand what’s happening inside you and the people around you — and use it to communicate, decide, and lead better.',
     objectives: [
@@ -197,7 +197,7 @@ const COURSES = [
     id: 'time-energy',
     title: 'Time & Energy Management',
     pillar: 'personal',
-    level: 'Beginner',
+    level: 'Foundational',
     minutes: 40,
     desc: 'Stop fighting the clock. Learn to prioritize what matters, protect your focus, and work with your energy instead of against it.',
     objectives: [
@@ -257,7 +257,7 @@ const COURSES = [
     id: 'resume-branding',
     title: 'Résumé & Personal Branding',
     pillar: 'workforce',
-    level: 'Beginner',
+    level: 'Foundational',
     minutes: 45,
     desc: 'Turn your experience into a résumé that gets past the software and speaks to humans — plus a simple online presence that backs it up.',
     objectives: [
@@ -316,7 +316,7 @@ const COURSES = [
     id: 'interview-mastery',
     title: 'Interview Confidence',
     pillar: 'workforce',
-    level: 'Beginner',
+    level: 'Core',
     minutes: 45,
     desc: 'Walk into any interview with prepared stories, a calm nervous system, and smart questions of your own.',
     objectives: [
@@ -383,7 +383,7 @@ const COURSES = [
     id: 'workplace-communication',
     title: 'Communicating at Work',
     pillar: 'workforce',
-    level: 'Beginner',
+    level: 'Core',
     minutes: 40,
     desc: 'Write emails people actually read, speak up in meetings, and handle disagreement without burning bridges.',
     objectives: [
@@ -448,7 +448,7 @@ const COURSES = [
     id: 'digital-foundations',
     title: 'Digital Foundations & Online Safety',
     pillar: 'technical',
-    level: 'Beginner',
+    level: 'Foundational',
     minutes: 40,
     desc: 'The unglamorous skills that make everything else easier: organized files, strong passwords, and a sharp eye for scams.',
     objectives: [
@@ -507,7 +507,7 @@ const COURSES = [
     id: 'spreadsheet-basics',
     title: 'Spreadsheet Basics',
     pillar: 'technical',
-    level: 'Beginner',
+    level: 'Foundational',
     minutes: 45,
     desc: 'From blank grid to useful tool: organize information, do math automatically, and sort and filter your way to answers.',
     objectives: [
@@ -568,7 +568,7 @@ const COURSES = [
     id: 'ai-tools',
     title: 'Working Smarter with AI Tools',
     pillar: 'technical',
-    level: 'Beginner',
+    level: 'Core',
     minutes: 45,
     desc: 'Use AI assistants as a genuine work multiplier: write better prompts, verify what comes back, and know what to never paste in.',
     objectives: [
@@ -974,6 +974,590 @@ const COURSES = [
 <p>Set up the second savings account and pick your set-aside percentage this week. Then write down the two questions you'd bring to a tax professional — and price what one consultation costs in your area. It's less than the penalty for guessing wrong.</p>`
       },
       { title: 'Quiz: Money Fundamentals', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  /* ================= FOUNDATIONAL & EXPANSION — PERSONAL ================= */
+  {
+    id: 'learning-to-learn',
+    title: 'Learning How to Learn',
+    pillar: 'personal',
+    level: 'Foundational',
+    minutes: 40,
+    desc: 'The foundational skill behind every other one: how memory actually works, the practice techniques research supports, and a routine that fits real life.',
+    objectives: [
+      'Use retrieval practice and spacing instead of rereading and cramming',
+      'Apply proven techniques: self-testing, interleaving, and the explain-it-simply method',
+      'Design a sustainable learning routine around your actual schedule'
+    ],
+    skills: ['Study skills', 'Memory techniques', 'Self-directed learning'],
+    lessons: [
+      {
+        title: 'How Memory Actually Works',
+        minutes: 12,
+        content: `
+<p>Most people study the way that feels productive — rereading, highlighting, watching explanations on repeat. Cognitive science has tested those methods for decades, and the verdict is consistent: they produce <em>familiarity</em>, not learning. The material feels known because you've seen it before, then vanishes when you need it.</p>
+<p>What actually builds memory is <strong>retrieval</strong> — the act of pulling information out of your head. Every time you force yourself to recall something without looking, the memory physically strengthens. Testing yourself isn't a way to measure learning; it <em>is</em> the learning. In controlled studies, students who self-tested once recalled dramatically more a week later than students who reread the material four times.</p>
+<p>The second pillar is <strong>spacing</strong>. Memory fades on a predictable curve, and the most efficient moment to review something is right when you're starting to forget it. Three 20-minute sessions across a week beat one 60-minute session every time — same minutes, entirely different retention. Cramming works for tomorrow morning and almost nothing else.</p>
+<p>One more reframe: the effort you feel when recall is hard is not a sign of failure. Researchers call it <em>desirable difficulty</em> — the strain is the signal that the memory is being built. Easy studying is usually fake studying.</p>
+<h4>Apply this</h4>
+<p>Take something you learned this week. Close everything and write down all you can remember — then check what you missed. That five-minute exercise just did more for retention than an hour of rereading would have.</p>`
+      },
+      {
+        title: 'The Practice Toolkit',
+        minutes: 14,
+        content: `
+<p>Four techniques cover most of what learning science recommends. None require talent — only the willingness to practice slightly uncomfortably.</p>
+<ul>
+<li><strong>Self-testing, constantly.</strong> Turn everything into questions. After a lesson, ask: what were the three main points? Flashcards (paper or a free app) automate this — but only if you genuinely attempt the answer before flipping. Peeking early converts the exercise back into rereading.</li>
+<li><strong>Spaced review.</strong> Review new material the next day, then a few days later, then a week later. Each successful recall lets you wait longer before the next one. Five minutes at the right moments beats an hour at the wrong one.</li>
+<li><strong>Interleaving.</strong> Mix related skills within one session instead of drilling one thing in a block. Practicing A-B-C-A-C-B feels messier than A-A-B-B-C-C — and produces reliably better real-world performance, because life doesn't tell you which type of problem is coming.</li>
+<li><strong>The explain-it-simply test.</strong> Try to explain the concept to an imaginary twelve-year-old, out loud or on paper. Wherever you reach for jargon or stall, you've found the exact gap in your understanding. This technique (often called the Feynman method) is the fastest gap-detector that exists — and an AI assistant makes a patient practice audience.</li>
+</ul>
+<h4>Apply this</h4>
+<p>Pick one course in this platform you've completed. Without opening it, write its three biggest ideas from memory, then explain one of them in plain language. Whatever you couldn't retrieve — that's your review list.</p>`
+      },
+      {
+        title: 'A Routine That Survives Real Life',
+        minutes: 12,
+        content: `
+<p>Techniques fail without a delivery system. The delivery system is a routine small enough that the busiest version of you still does it.</p>
+<p><strong>Shrink the session, raise the frequency.</strong> Twenty minutes daily outperforms two hours on Sunday — for memory consolidation and for habit survival. Attach the session to an anchor that already happens: after morning coffee, during a commute (audio lessons exist for exactly this), lunch break. The anchor does the remembering for you.</p>
+<p><strong>Protect sleep like it's part of the curriculum — because it is.</strong> Memory consolidation happens during sleep; the brain literally replays and files what you practiced. A late-night cram session that costs sleep usually subtracts more than it adds.</p>
+<p><strong>Track streaks of showing up, not hours logged.</strong> The metric that predicts success is consistency. A visible chain of days — marked on paper or anywhere — builds its own momentum. Miss a day? The rule is never two.</p>
+<p><strong>Expect plateaus.</strong> Progress in any skill is stair-shaped: bursts, then flat stretches where nothing seems to improve. Plateaus are where consolidation happens and where most people quit. Knowing the shape of the curve in advance is protection.</p>
+<p>For a multipotential learner — someone building several skills for several possible futures — this routine is the master key. Content changes; the system that acquires it doesn't.</p>
+<h4>Apply this</h4>
+<p>Define your anchor and your minimum viable session right now: "After [existing habit], I do 20 minutes." Schedule the first three days. Then start the chain.</p>`
+      },
+      { title: 'Quiz: Learning How to Learn', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  {
+    id: 'personal-finance',
+    title: 'Personal Finance Essentials',
+    pillar: 'personal',
+    level: 'Foundational',
+    minutes: 45,
+    desc: 'Financial literacy is consistently ranked among the most needed — and least taught — life skills in America. Budgeting, credit, debt, and savings, in plain language.',
+    objectives: [
+      'Build a one-page budget you will actually maintain',
+      'Understand how credit scores work and manage debt strategically',
+      'Automate savings and build an emergency fund from any income level'
+    ],
+    skills: ['Budgeting', 'Credit management', 'Saving'],
+    lessons: [
+      {
+        title: 'The One-Page Budget',
+        minutes: 14,
+        content: `
+<p>Surveys repeatedly find that a majority of Americans couldn't cover a modest unexpected expense without borrowing — not primarily an income problem, but a <em>visibility</em> problem. A budget isn't a punishment; it's a map of money you already have.</p>
+<p>The simplest durable framework is <strong>50/30/20</strong>: roughly 50% of take-home pay to needs (housing, utilities, food, transport, minimum debt payments), 30% to wants, and 20% to savings and extra debt payoff. Your real numbers will differ — the percentages are a compass, not a law. If needs eat 70% right now, the framework's job is simply to make that visible so decisions become deliberate.</p>
+<p>Build it in four steps, one page, thirty minutes:</p>
+<ol>
+<li><strong>Find your real take-home</strong> — what actually lands in your account monthly.</li>
+<li><strong>List fixed needs</strong> from your last two bank statements — the statements, not your memory. Memory lies; statements don't.</li>
+<li><strong>Give every remaining dollar a name</strong> — wants, savings, debt. Unnamed money evaporates.</li>
+<li><strong>Review for ten minutes weekly.</strong> The budget that works is the one that gets looked at. (The Spreadsheet Basics course builds a tracker for exactly this.)</li>
+</ol>
+<p>The single most powerful line on the page is <strong>pay yourself first</strong>: savings transferred automatically on payday, before spending starts, at any amount. Ordering beats willpower.</p>
+<h4>Apply this</h4>
+<p>Pull your last month's statement and sort every transaction into needs / wants / savings. Most people find one recurring charge they forgot existed — cancel it, and you've already paid for this course's time.</p>`
+      },
+      {
+        title: 'Credit and Debt, Demystified',
+        minutes: 14,
+        content: `
+<p>Your credit score is a three-digit summary of how you've handled borrowed money — and it quietly prices your life: loan rates, apartment applications, insurance in many states, even some job screenings. The mechanics are less mysterious than the industry makes them sound.</p>
+<p>The two factors that dominate the score: <strong>payment history</strong> (pay at least the minimum, on time, every time — a single late payment reported can hurt for years) and <strong>utilization</strong> (how much of your available credit you're using; keeping cards below roughly 30% of their limits, and lower is better). Length of history, new applications, and account mix matter less. Check your reports free at <em>annualcreditreport.com</em> — the official site — and dispute errors, which are common.</p>
+<p>For paying down multiple debts, two proven strategies:</p>
+<ul>
+<li><strong>Avalanche:</strong> extra payments to the highest interest rate first. Mathematically optimal.</li>
+<li><strong>Snowball:</strong> smallest balance first. Psychologically powerful — early wins keep people going.</li>
+</ul>
+<p>The best method is whichever one you'll sustain. What matters far more than the choice: avoid <strong>predatory debt</strong> — payday loans, title loans, rent-to-own, and "buy now pay later" stacking routinely carry effective rates that trap borrowers in cycles. If you're already caught in one, nonprofit credit counseling (look for NFCC-affiliated agencies) is a legitimate, low-cost resource — and for major decisions like bankruptcy or debt settlement, consult a qualified professional rather than an advertisement.</p>
+<h4>Apply this</h4>
+<p>Pull your free credit report this week and check it for errors. Then list your debts with balance and interest rate — seeing the full picture on one page is the step most people never take.</p>`
+      },
+      {
+        title: 'Saving: The Cushion and the Compound',
+        minutes: 12,
+        content: `
+<p>Savings has two jobs, in order: <strong>absorb shocks</strong>, then <strong>build the future</strong>.</p>
+<p><strong>Job one: the emergency fund.</strong> The first target is small and achievable — $500 to $1,000, enough to make a car repair or medical bill an inconvenience instead of a debt spiral. Then grow it toward one month of essential expenses, eventually three. Keep it in a separate <em>high-yield savings account</em> (online banks commonly pay many times what traditional branches pay) — separate enough that you don't see it daily, reachable enough for a true emergency.</p>
+<p><strong>The mechanism is automation, not discipline.</strong> An automatic transfer on payday — even $10 — beats a sincere intention of $100. Savings that requires a monthly decision loses to whatever that month throws at you. Start with an amount so small it's embarrassing; raise it when raises come. The habit is the asset; the balance follows.</p>
+<p><strong>Job two: compounding.</strong> Money saved earns returns, and the returns earn returns. Time is the dominant ingredient — which is why starting small and early beats starting big and late. If your employer offers a retirement plan with matching contributions, capture the full match before any other investing goal: it is the closest thing to free money in personal finance. Beyond the basics, investment choices depend on your situation — <em>that's the point where a qualified, fee-transparent financial advisor earns their cost</em>, not a social media personality.</p>
+<h4>Apply this</h4>
+<p>Set up one automatic transfer today, on payday, to a separate savings account — any amount. Then check one thing at work: does your employer match retirement contributions, and are you capturing all of it?</p>`
+      },
+      { title: 'Quiz: Personal Finance', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  /* ================= EXPANSION — PROFESSIONAL ================= */
+  {
+    id: 'creative-thinking',
+    title: 'Creative Thinking & Innovation',
+    pillar: 'professional',
+    level: 'Core',
+    minutes: 40,
+    desc: 'Ranked in the global top five workplace skills and rising. Creativity is a trainable process — divergence, technique, and turning ideas into pitches people accept.',
+    objectives: [
+      'Separate divergent idea generation from convergent evaluation',
+      'Use structured techniques to produce ideas on demand',
+      'Move an idea from concept to a pitch stakeholders can say yes to'
+    ],
+    skills: ['Creative thinking', 'Ideation', 'Innovation'],
+    lessons: [
+      {
+        title: 'Creativity Is a Process, Not a Gift',
+        minutes: 12,
+        content: `
+<p>The World Economic Forum places <strong>creative thinking</strong> in the top five skills employers need most — right beside analytical thinking, and growing faster. That surprises people who assume creativity is an artistic personality trait. In the workplace, creativity means something specific and learnable: <em>producing useful options that weren't obvious.</em></p>
+<p>The core mechanic is separating two modes that most people mash together:</p>
+<ul>
+<li><strong>Divergent mode</strong> generates options — many, fast, without judgment. Quantity is the goal, because idea quality follows idea quantity: the research on creative output consistently shows the best ideas arrive after the obvious ones are exhausted, usually well past idea ten.</li>
+<li><strong>Convergent mode</strong> evaluates — filters, combines, selects. Essential, but lethal when it runs during generation. The inner critic that says "that won't work" at idea three is why brainstorms die.</li>
+</ul>
+<p>Run them in sequence, never in parallel: a timer for pure generation (nothing gets judged), then a break, then evaluation with criteria. This one separation doubles the useful output of most people and most meetings.</p>
+<p>One more counterintuitive finding: <strong>constraints fuel creativity rather than blocking it</strong>. "Improve the checkout process" produces stares; "improve checkout without spending money or adding staff" produces ideas. When stuck, add a constraint — the box gives the mind traction.</p>
+<h4>Apply this</h4>
+<p>Pick a real problem and set a five-minute timer. Write twenty possible approaches — no judging, bad ideas welcome, past ten is where it gets interesting. Only after the timer: circle two worth exploring.</p>`
+      },
+      {
+        title: 'Techniques That Produce Ideas on Demand',
+        minutes: 14,
+        content: `
+<p>Professionals don't wait for inspiration; they run procedures. Three that work reliably:</p>
+<ul>
+<li><strong>SCAMPER the existing thing.</strong> Take a current product, process, or service and interrogate it: <em>Substitute</em> (a cheaper material, a different audience?), <em>Combine</em> (merge two steps, two offers?), <em>Adapt</em> (what works elsewhere that could work here?), <em>Modify</em> (bigger, smaller, faster?), <em>Put to other use</em>, <em>Eliminate</em> (what if we removed this step entirely?), <em>Reverse</em> (what if the customer did this part?). Seven lenses, each forcing a non-obvious angle.</li>
+<li><strong>Import from another industry.</strong> Most "innovation" is translation: hospitals adopted checklists from aviation; restaurants adopted order-ahead from coffee apps. Ask: who else has solved a problem shaped like mine — in a completely different field? Being interested in many domains is a professional advantage here; the more fields you touch, the more raw material you can import.</li>
+<li><strong>Invert it.</strong> When "how do we improve retention?" stalls, ask "how would we guarantee everyone quits?" — then reverse each answer. The failure list is always easy to generate, and its mirror image is an improvement plan. The worst-idea warm-up works the same way: deliberately terrible ideas dissolve the fear of judgment that blocks good ones.</li>
+</ul>
+<p>Capture matters as much as generation: ideas arrive on walks and in showers because relaxed attention connects distant material. Keep one dedicated capture place — a note on your phone — and empty it weekly into somewhere you'll act.</p>
+<h4>Apply this</h4>
+<p>Run SCAMPER against one product or process you know well — one sentence per letter. Seven sentences, ten minutes, and notice how many you'd genuinely consider.</p>`
+      },
+      {
+        title: 'From Idea to Yes',
+        minutes: 12,
+        content: `
+<p>Ideas don't fail in the notebook; they fail at the pitch. Getting to yes is a craft with three moves.</p>
+<p><strong>Prototype at embarrassing speed.</strong> Before asking anyone to approve an idea, make the smallest real version of it: a sketch, a one-page mock, a manual walkthrough of the process, a single test customer. A rough prototype answers questions that debate never settles — and "here's what I tried" earns a fundamentally different conversation than "here's what I think."</p>
+<p><strong>Frame novelty as risk reduction.</strong> Decision-makers don't reject ideas because they hate newness; they reject unpriced risk. So price it for them: "We'd pilot it with one team for two weeks; the cost is X hours; if the metric doesn't move, we stop." A reversible, measured, time-boxed proposal converts "that's risky" into "that's cheap to find out." Small yes first; the big yes rides on its results.</p>
+<p><strong>Invite critique before the decision, not after.</strong> Show the prototype to the skeptics early and ask them to break it. Their objections either improve the idea or become the exact list your pitch must answer — and people who were consulted become co-owners rather than opponents.</p>
+<p>Then close the loop: whatever the pilot shows, report it plainly. A culture-level truth worth internalizing — the person who runs cheap experiments and reports honest results gets funded again, whether or not the first idea worked.</p>
+<h4>Apply this</h4>
+<p>Take your best current idea and design its two-week, low-cost, reversible pilot: what's tested, what it costs, what number decides. Write it in three sentences — that's a pitch.</p>`
+      },
+      { title: 'Quiz: Creative Thinking', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  {
+    id: 'project-management',
+    title: 'Project Management Essentials',
+    pillar: 'professional',
+    level: 'Core',
+    minutes: 45,
+    desc: 'Industry projections estimate millions of project-oriented roles opening this decade. The fundamentals — scope, planning, execution — apply to any job that has deadlines.',
+    objectives: [
+      'Define scope and a "definition of done" before work begins',
+      'Plan with milestones, owners, and realistic buffers',
+      'Run projects with a status rhythm, a risk log, and clean closure'
+    ],
+    skills: ['Project planning', 'Execution', 'Risk management'],
+    lessons: [
+      {
+        title: 'Why Projects Fail Before They Start',
+        minutes: 14,
+        content: `
+<p>The Project Management Institute has projected demand for tens of millions of project-capable workers this decade — because more and more work in every industry arrives as a <em>project</em>: a defined outcome, a deadline, limited resources. You don't need the job title to need the skill.</p>
+<p>Most failed projects fail at the definition stage, quietly. Two tools prevent it:</p>
+<p><strong>The triangle.</strong> Every project balances three constraints — <strong>scope</strong> (what gets delivered), <strong>time</strong> (when), and <strong>resources</strong> (people, money, attention). You cannot fix all three by wishing; when one moves, another must. The professional move is making the triangle explicit at kickoff: "We can deliver this scope by this date with these resources. If the date must move up, we cut scope or add hands — which?" Projects without that conversation have it later, as a crisis.</p>
+<p><strong>Definition of done.</strong> "Redesign the intake form" means five different things to five people. Write the finish line as a checkable sentence: "New form live, tested with five staff, old form retired, instructions updated." When done is checkable, disagreements surface at the start — when they're cheap — instead of at delivery, when they're expensive.</p>
+<p>Finally, list your <strong>stakeholders</strong> — everyone who can bless, block, or break the project — and ask each what success looks like <em>to them</em>. The unconsulted stakeholder discovered in week six is a project-management classic for a reason.</p>
+<h4>Apply this</h4>
+<p>Take one thing on your plate and write its definition of done as a checkable sentence, plus its triangle: scope, date, resources. If you can't fill all three, you've found the conversation to have this week.</p>`
+      },
+      {
+        title: 'Planning Without Drowning',
+        minutes: 14,
+        content: `
+<p>A plan's job is not to predict the future — it's to make problems visible early. The lightweight version that works for most projects:</p>
+<ol>
+<li><strong>Break the outcome into milestones</strong> — three to six visible checkpoints, each a real, demonstrable thing ("draft reviewed," "pilot running"), not a percentage. Percentages lie; demos don't.</li>
+<li><strong>Break milestones into tasks small enough to finish in a day or two.</strong> A task that lingers a week is usually several tasks hiding in one — and hiding is where delays live.</li>
+<li><strong>Give every task one owner and one date.</strong> One owner: shared ownership is no ownership. A team of "we'll all handle it" delivers nothing on time.</li>
+<li><strong>Add buffer honestly.</strong> Estimates are systematically optimistic — the planning fallacy is one of the most replicated findings in psychology. Add 30–50% to first estimates, and put the buffer at the project level (a slack week before the deadline) rather than padding every task.</li>
+</ol>
+<p><strong>Tools: the simplest one you'll actually maintain.</strong> A shared checklist or a three-column board — To do / Doing / Done — covers most real projects; that's the whole idea behind kanban. The board's power is one rule: <em>limit how much sits in "Doing."</em> Three things in progress finish; ten things in progress age. Fancier software adds value only when the project outgrows the board, not before.</p>
+<h4>Apply this</h4>
+<p>Plan one real project on a single page: milestones, day-sized tasks for the first milestone only, one owner and one date each, and a named buffer. Detail for later milestones can wait — plans are drawn in pencil past the first checkpoint.</p>`
+      },
+      {
+        title: 'Running It and Landing It',
+        minutes: 12,
+        content: `
+<p>Execution is a rhythm, not a heroic sprint. Three practices carry a project from kickoff to clean landing:</p>
+<p><strong>The status rhythm.</strong> A short, fixed-schedule check — weekly for most projects — with three questions per workstream: what finished, what's next, what's blocked. Blockers get an owner and a date on the spot. This rhythm is what keeps small slippages from compounding silently into big ones; a project that skips two check-ins is a project flying blind.</p>
+<p><strong>The risk log.</strong> One running list: what could go wrong, how likely, how bad, and what we'd do. Ten minutes at kickoff and a glance each week. The point isn't prophecy — it's that a risk you've named gets a response plan, while a risk you haven't becomes a Friday-afternoon emergency. Pair it with scope discipline: every "small addition" mid-project gets the same sentence used in client work — "we can add that; here's what it costs in time or what it displaces."</p>
+<p><strong>The landing.</strong> Projects end sloppily by default — the deliverable ships and everyone scatters. Close deliberately: check the definition of done line by line, hand off ownership of whatever now needs maintaining, thank contributors specifically, and hold a 30-minute <strong>retrospective</strong>: what went well, what didn't, what we'd change next time — captured in writing. Teams that skip retros repeat their mistakes on schedule; teams that hold them compound their skill with every project.</p>
+<h4>Apply this</h4>
+<p>Install the rhythm on your current project this week: book the recurring 15-minute check-in, start the risk log with its top three entries, and put the retro on the calendar now — for the day after the deadline.</p>`
+      },
+      { title: 'Quiz: Project Management', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  /* ================= FOUNDATIONAL & EXPANSION — WORKFORCE ================= */
+  {
+    id: 'job-search-foundations',
+    title: 'Job Search Foundations',
+    pillar: 'workforce',
+    level: 'Foundational',
+    minutes: 40,
+    desc: 'How the job market actually fills positions, applications that get responses, and how to protect your energy — and your identity — through the search.',
+    objectives: [
+      'Understand where jobs are actually found — and spot fake postings',
+      'Send fewer, better applications with a tracking system',
+      'Sustain momentum and use free local resources through a longer search'
+    ],
+    skills: ['Job search strategy', 'Applications', 'Scam awareness'],
+    lessons: [
+      {
+        title: 'How Jobs Actually Get Filled',
+        minutes: 12,
+        content: `
+<p>The biggest job-search mistake is treating job boards as the whole market. Surveys of how people actually land roles consistently show a large share — often cited around 40–70% depending on industry — come through <strong>referrals and personal connections</strong>, many for positions that were never posted publicly. The market has a visible layer and a hidden one, and the hidden one is bigger than it looks.</p>
+<p>A balanced search works three channels at once:</p>
+<ul>
+<li><strong>Network activation.</strong> Not "networking events" — simply telling people you know, specifically: "I'm looking for [role type]; if you hear of anything or know someone I should talk to, I'd appreciate it." Specific requests travel; vague announcements don't. Former coworkers are the highest-value contacts, because they can vouch for your work.</li>
+<li><strong>Direct approach.</strong> Identify employers you'd want even if they have no posting, and reach the hiring manager or apply through their site. Timing luck is real: arriving right before a posting exists means no competition.</li>
+<li><strong>Boards — with a filter.</strong> Useful, but treat them as one channel, and beware <strong>fake postings</strong>: scam listings harvest personal data or run fake-check schemes. Red flags: pay far above market for vague duties, interviews conducted entirely by chat app, requests for your bank details or ID documents before an offer, or any request to pay for equipment or training. No legitimate employer asks you to send money.</li>
+</ul>
+<h4>Apply this</h4>
+<p>Write your specific one-sentence ask, then send it to five people who know your work. This single action outperforms a weekend of scrolling job boards.</p>`
+      },
+      {
+        title: 'Applications That Get Responses',
+        minutes: 14,
+        content: `
+<p>Application volume feels productive; application <em>fit</em> gets interviews. Recruiters and tracking software both reward the same thing — visible match between your materials and the posting.</p>
+<ul>
+<li><strong>Tailor the top third.</strong> You don't rewrite your résumé per job; you retune it. Adjust the summary line and reorder your top bullets so the posting's main requirements appear — in its vocabulary — in the first third of the page (the Résumé & Personal Branding course covers the mechanics). Ten tailored applications beat fifty identical ones, consistently.</li>
+<li><strong>Use the cover letter only where it counts.</strong> When requested or when you genuinely want the role, write three short paragraphs: why them specifically, the one or two proofs that you fit, and a confident close. Generic letters are read as generic interest.</li>
+<li><strong>Track everything.</strong> A simple spreadsheet — company, role, date applied, contact, status, follow-up date — turns a chaotic search into a managed pipeline. Follow up once, about a week after applying, briefly and politely. It moves a surprising number of applications out of the pile.</li>
+<li><strong>Prepare references before you need them.</strong> Ask two or three people in advance, tell them what roles you're pursuing, and send them your current résumé. A warm, prepared reference reads completely differently from an ambushed one.</li>
+</ul>
+<h4>Apply this</h4>
+<p>Build the tracker with five columns and enter your active applications. Then take the posting you care most about and retune your top third against it — highlight its five key phrases and make sure your page speaks them.</p>`
+      },
+      {
+        title: 'Sustaining the Search',
+        minutes: 12,
+        content: `
+<p>A job search is a numbers process wearing an emotions costume. Even strong candidates hear far more silence than yes — response rates in the single digits per application are normal, which means rejection is the <em>expected texture</em> of the process, not a verdict on your worth. Knowing the math in advance is armor.</p>
+<p><strong>Structure beats mood.</strong> Treat the search like a part-time job with hours and a stopping point: mornings for applications and outreach, an afternoon block for skill-building, evenings off — actually off. Unbounded searching burns people out by week three; bounded searching sustains for months.</p>
+<p><strong>Upskill in parallel.</strong> Time between roles is the cheapest skill-building window you'll ever get — courses (like the ones on this platform), a small freelance or volunteer project that becomes a résumé line and a fresh reference. "Here's what I built during my search" reframes a gap into initiative in one sentence.</p>
+<p><strong>Use the free infrastructure.</strong> Public libraries offer computers, internet, résumé help, and often free courses (ask about LinkedIn Learning access with a library card). American Job Centers — the federally funded workforce centers in every state — provide free coaching, training funds, and employer connections. The Wellness Hub in this app can locate libraries near you; your state's workforce agency site lists the job centers. These services exist for exactly this moment; using them is smart, not shameful.</p>
+<p>And if the search is grinding your mental health down, that's real and common — support resources are in the Wellness Hub, and using them is a strength.</p>
+<h4>Apply this</h4>
+<p>Design your search week on paper: the daily hours, the stopping time, one skill you'll build in parallel, and one free local resource you'll visit this week.</p>`
+      },
+      { title: 'Quiz: Job Search Foundations', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  {
+    id: 'customer-service',
+    title: 'Customer Service Excellence',
+    pillar: 'workforce',
+    level: 'Foundational',
+    minutes: 40,
+    desc: 'Service orientation ranks in employers’ global top ten — and service skills transfer to every role, every industry, and every business you might ever run.',
+    objectives: [
+      'Handle any customer interaction with a reliable structure',
+      'De-escalate frustrated customers with the LAST framework',
+      'Turn service skills into career capital in any field'
+    ],
+    skills: ['Customer service', 'De-escalation', 'Communication under pressure'],
+    lessons: [
+      {
+        title: 'The Service Mindset',
+        minutes: 12,
+        content: `
+<p>The World Economic Forum lists <strong>service orientation and customer service</strong> among its top ten workplace skills — and it's one of the largest employment categories in the American economy. But the deeper reason to master it: service is <em>problem-solving under emotion</em>, and that combination shows up in every job, every negotiation, and every business.</p>
+<p>Three fundamentals separate professionals from script-readers:</p>
+<ul>
+<li><strong>The first response sets the trajectory.</strong> A customer arriving with a problem is running a split-second test: <em>is this person going to help me or fight me?</em> "Let's get this sorted out for you" passes the test before any solution exists. Tone in the first ten seconds predicts how the next ten minutes go.</li>
+<li><strong>Acknowledge before you solve.</strong> The most common service error is jumping to the fix while the customer still feels unheard. One sentence buys everything: "That's frustrating — you ordered it two weeks ago and it's still not here." Acknowledgment isn't agreement that you're at fault; it's proof you received the person, not just the ticket.</li>
+<li><strong>Own the handoff.</strong> "That's not my department" is the sentence customers remember forever. The professional version: "That's handled by billing — let me connect you and explain the situation so you don't have to repeat it." Same routing, opposite experience.</li>
+</ul>
+<h4>Apply this</h4>
+<p>Write your own natural-sounding versions of the three key sentences: the helpful opener, the acknowledgment, the warm handoff. Scripts you've made your own come back under pressure; borrowed ones don't.</p>`
+      },
+      {
+        title: 'De-escalation: The LAST Framework',
+        minutes: 14,
+        content: `
+<p>Angry customers follow a pattern, and so does calming them. The industry-standard sequence is <strong>LAST</strong>:</p>
+<ol>
+<li><strong>Listen — fully, first.</strong> Let them empty the tank without interruption. Most escalation happens because someone was cut off mid-complaint. Take notes; the details matter for the solve, and visible note-taking itself de-escalates.</li>
+<li><strong>Acknowledge/Apologize.</strong> "I'm sorry this happened — I'd be frustrated too." You can apologize for the experience without admitting fault, and it costs nothing. Never say "calm down" — in the history of human conversation it has never once worked.</li>
+<li><strong>Solve — or offer the best real option.</strong> If you can fix it, fix it fast and narrate: "Here's what I'm doing right now." If you can't fully fix it, offer choices — even small ones ("I can do X today, or escalate for Y by Friday — which works better?"). Choice returns control, and loss of control is what anger actually is.</li>
+<li><strong>Thank them.</strong> "Thanks for your patience while we sorted this out." It closes the loop and — genuinely — complainers who get handled well become more loyal than customers who never had a problem. That's a documented effect called the service recovery paradox.</li>
+</ol>
+<p><strong>The boundary:</strong> de-escalation applies to frustration, not abuse. Slurs, threats, or personal attacks end the script: "I want to help you, and I can't do that if this continues" — one warning, then hand off to a supervisor or end the interaction per your workplace's policy. Absorbing abuse is not part of any job description, and knowing your escalation path <em>before</em> you need it is part of professionalism.</p>
+<h4>Apply this</h4>
+<p>Recall your last difficult interaction — either side of the counter. Map what happened against LAST: which step was skipped? That's the one to drill.</p>`
+      },
+      {
+        title: 'Service as Career Capital',
+        minutes: 12,
+        content: `
+<p>Service experience is routinely undersold on résumés as "handled customer inquiries" — while hiring managers in every industry are actively hunting for exactly what it builds. Translate it properly and it becomes some of the strongest career capital there is.</p>
+<p><strong>What service actually trains:</strong> communication under pressure, conflict resolution, reading people fast, juggling priorities in real time, and representing an organization when things go wrong. In résumé language (action + result, as covered in Résumé & Personal Branding): "De-escalated 10+ customer conflicts weekly, maintaining a 95% satisfaction score" or "Handled 60 daily interactions while keeping average resolution under four minutes." Numbers exist in every service job — counts, times, scores, streaks.</p>
+<p><strong>Internal customers count too.</strong> Every colleague who depends on your work is a customer; the acknowledgment-solve-thank pattern works identically in office jobs, trades, and management. People known for being <em>easy to work with under pressure</em> get pulled upward — it's among the most promotion-correlated reputations that exists.</p>
+<p><strong>And if you ever run your own business</strong> — the Entrepreneurship pillar's whole premise — service skill becomes the moat. Small businesses rarely out-spend competitors; they out-care them. Response speed, recovery from mistakes, and the feeling customers get from dealing with you are the review engine that markets a service business for free.</p>
+<h4>Apply this</h4>
+<p>Rewrite one service experience from your history as a quantified résumé bullet. Then note which two service skills you'd want a future employer — or your own future customers — to feel within the first minute of meeting you.</p>`
+      },
+      { title: 'Quiz: Customer Service', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  /* ================= FOUNDATIONAL & EXPANSION — TECHNICAL ================= */
+  {
+    id: 'info-literacy',
+    title: 'Research & Information Literacy',
+    pillar: 'technical',
+    level: 'Foundational',
+    minutes: 40,
+    desc: 'The foundational digital skill: finding what you need fast, judging whether it’s true, and staying grounded in an era of AI-generated everything.',
+    objectives: [
+      'Search like a professional using operators and better sources',
+      'Evaluate any source with the SIFT method',
+      'Verify claims and media in the age of AI-generated content'
+    ],
+    skills: ['Search skills', 'Source evaluation', 'Verification'],
+    lessons: [
+      {
+        title: 'Search Like a Professional',
+        minutes: 12,
+        content: `
+<p>Most people type a vague phrase and settle for whatever the first screen offers. Professionals interrogate the tool. A few operators transform results immediately:</p>
+<ul>
+<li><strong>Quotation marks</strong> force exact phrases: <code>"community health worker certification"</code> stops the engine from substituting words you didn't ask for.</li>
+<li><strong>site:</strong> searches inside one site: <code>site:bls.gov home health aide outlook</code> goes straight to government labor data and skips the content farms.</li>
+<li><strong>Minus</strong> excludes noise: <code>jaguar -car</code> when you mean the animal.</li>
+<li><strong>Reverse image search</strong> (right-click an image, or upload it) answers "where did this picture really come from?" — one of the most useful verification moves that exists.</li>
+</ul>
+<p>Just as important is <em>where</em> you search. For consequential questions — health, money, law, statistics — go to the layer beneath the blog posts: government sources (.gov: BLS for jobs, IRS for taxes, CDC for health), major institutions, and <strong>your public library's databases</strong>, which give you free access to journalism archives, consumer research, and reference material that search engines can't reach. A library card is a research superpower that most people never activate.</p>
+<p>Finally: the first page of results is an algorithm's guess about engagement, not a ranking of truth. Scanning results four through ten routinely surfaces better sources than result one.</p>
+<h4>Apply this</h4>
+<p>Take a question that matters to you right now and run it three ways: plain search, quoted-phrase search, and a <code>site:.gov</code> search. Compare what each surfaces — the difference is the skill.</p>`
+      },
+      {
+        title: 'SIFT: Judging What You Found',
+        minutes: 14,
+        content: `
+<p>Digital literacy researchers studied how professional fact-checkers evaluate sources and distilled it into a four-move method called <strong>SIFT</strong> — designed to take about sixty seconds, not an afternoon:</p>
+<ol>
+<li><strong>Stop.</strong> Before sharing, citing, or believing — pause. Especially if the content triggers a strong emotion. Outrage and fear are the delivery mechanisms of misinformation; the stronger the feeling, the more the claim deserves a check.</li>
+<li><strong>Investigate the source.</strong> Not by reading more of the source itself — by reading <em>about</em> it. Open a new tab and search the site or author's name. Fact-checkers call this lateral reading, and it's the single biggest professional habit: the "Institute for Family Health Freedom" may turn out to be one guy and a supplement store.</li>
+<li><strong>Find better coverage.</strong> Instead of evaluating a mediocre source, search the <em>claim</em> and see who else covers it. If a striking statistic appears only in places quoting each other, that's a finding in itself.</li>
+<li><strong>Trace to the original.</strong> Headlines compress and distort. The study "proving" a headline often says something narrower, older, or opposite. Click through to the actual study, the full quote, the original video — the distance between headline and source is where most misinformation lives.</li>
+</ol>
+<p>Common manipulation patterns to recognize on sight: real photo + wrong event, true statistic + missing base rate, screenshot of a headline with no link, and "they don't want you to know" framing — which is marketing, not evidence.</p>
+<h4>Apply this</h4>
+<p>Find one dramatic claim in your feed today and give it the full SIFT — sixty seconds. Whatever you discover, notice how different checking feels from scrolling.</p>`
+      },
+      {
+        title: 'Information in the AI Era',
+        minutes: 12,
+        content: `
+<p>Two shifts define the current information environment: AI systems now <em>summarize</em> much of what you read, and AI tools can now <em>fabricate</em> convincing text, images, audio, and video. Both are manageable with adjusted habits.</p>
+<p><strong>Treat AI summaries as a starting map, not a destination.</strong> Search engines and chatbots increasingly answer questions directly — fluently, confidently, and sometimes wrongly (the AI Tools course covers why hallucination is structural). The professional habit: use the AI answer to learn the landscape and vocabulary, then verify the specific facts you'll rely on at their sources. For anything consequential, "the AI said so" is not a citation.</p>
+<p><strong>For suspicious media, check provenance, not pixels.</strong> Deepfake quality improves too fast for "look for weird hands" advice to stay reliable. The durable questions are contextual: Who posted this first? When? Does the event appear in any credible outlet? Does a reverse image search show the "new" photo is from 2016? Extraordinary footage that exists in exactly one place is extraordinary evidence of nothing.</p>
+<p><strong>Build an information diet on purpose.</strong> Choose a small set of sources you've SIFTed once and trust structurally — a wire service, a local outlet, one or two domain experts who show their work — and let them be your baseline. The alternative is letting an engagement algorithm choose your reality, and its incentive is your attention, not your accuracy.</p>
+<h4>Apply this</h4>
+<p>Ask an AI assistant a factual question in an area you know, then trace its three main claims to original sources. Time the exercise — calibrating the real cost of verification makes you far more likely to do it when it counts.</p>`
+      },
+      { title: 'Quiz: Information Literacy', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  {
+    id: 'data-literacy',
+    title: 'Data Literacy: Making Numbers Speak',
+    pillar: 'technical',
+    level: 'Core',
+    minutes: 45,
+    desc: 'AI and big data top the list of fastest-growing skills worldwide. Read data without being fooled, analyze it with tools you already have, and present it so decisions happen.',
+    objectives: [
+      'Read statistics and charts critically — averages, percentages, and axes',
+      'Perform basic analysis: trends, comparisons, and rates',
+      'Present data honestly in a way that drives decisions'
+    ],
+    skills: ['Data interpretation', 'Basic analysis', 'Data storytelling'],
+    lessons: [
+      {
+        title: 'Reading Data Without Being Fooled',
+        minutes: 14,
+        content: `
+<p>The WEF ranks <strong>AI and big data</strong> as the fastest-growing skill cluster in the global economy — but beneath the tools sits a more foundational capability: reading numbers without being manipulated by them. Four traps cover most everyday cases:</p>
+<ul>
+<li><strong>Average vs. median.</strong> "Average salary at this company: $95,000" — which is what happens when nine people earn $50,000 and one earns $500,000. The <em>median</em> (the middle value) resists distortion by outliers. When a distribution is lopsided — salaries, home prices, followers — ask for the median, and be suspicious of anyone who won't give it.</li>
+<li><strong>Percentages vs. percentage points — and vs. reality.</strong> "Risk increased 50%!" can mean it went from 2 in 10,000 to 3 in 10,000. Relative change sounds dramatic; absolute numbers tell you whether to care. Always ask: 50% of <em>what</em>?</li>
+<li><strong>The truncated axis.</strong> A bar chart whose vertical axis starts at 88 instead of 0 turns a 2% difference into a towering cliff. First thing to check on any chart: where does the axis start, and are the intervals even?</li>
+<li><strong>The invisible sample.</strong> "80% of users love it" — 80% of how many? Selected how? An online poll of a fan forum and a randomized survey produce very different 80s. No sample description, no conclusion.</li>
+</ul>
+<h4>Apply this</h4>
+<p>Find one statistic in the news today and run the four checks: average or median? Relative or absolute? Axis honest? Sample described? One of the four usually cracks.</p>`
+      },
+      {
+        title: 'Analysis Anyone Can Do',
+        minutes: 14,
+        content: `
+<p>Real analysis is less about math and more about asking good questions in a disciplined order. With a spreadsheet (the Spreadsheet Basics course covers the mechanics), anyone can run the three moves that answer most business questions:</p>
+<ul>
+<li><strong>Trend: what's happening over time?</strong> Sort by date, chart the line, and look past single points to the direction. One bad month is noise; three declining quarters is a trend. Comparing to the <em>same period last year</em> beats comparing to last month whenever seasonality exists — December retail always beats November.</li>
+<li><strong>Comparison: what's different between groups?</strong> Category A vs. B, this location vs. that one, before vs. after. The discipline is comparing like with like — a store open 12 months vs. one open 3 months needs a per-month view, which leads to…</li>
+<li><strong>Rates: normalize before you conclude.</strong> Totals mislead whenever groups differ in size. Complaints per 100 orders, revenue per customer, conversions per visit — dividing by the relevant denominator is the single most professional move in everyday analysis. A big store with more total complaints may be far better per order than a small one.</li>
+</ul>
+<p>Then interrogate your own finding the way the Analytical Thinking course teaches: could a third factor explain this? Is the sample big enough to mean anything? What would I expect to see if my explanation were wrong? Data analysis without those questions is just chart-making.</p>
+<h4>Apply this</h4>
+<p>Take any data you have access to — your budget tracker, work numbers, even step counts. Run all three moves: the trend over time, one comparison, one rate. Write the single most interesting sentence the data supports.</p>`
+      },
+      {
+        title: 'Telling the Story',
+        minutes: 12,
+        content: `
+<p>Analysis creates value only when someone decides differently because of it. That translation — from finding to decision — is data storytelling, and it has rules:</p>
+<p><strong>One chart, one message.</strong> Decide the sentence first ("Complaints dropped 40% after the new process"), then build the simplest chart that shows exactly that. If a chart needs a paragraph of explanation, it's the wrong chart. Chart choice basics: <em>line</em> for change over time, <em>bar</em> for comparing categories, <em>table</em> for precise lookup — and pie charts almost never (humans compare lengths far better than angles).</p>
+<p><strong>Lead with the finding, not the journey.</strong> Analysts love narrating their process; decision-makers need the answer first: "Recommendation: keep the new process — complaints fell 40% with no cost increase. Here's the evidence." The structure mirrors the decision-communication pattern from Analytical Thinking: conclusion, evidence, risk, next step.</p>
+<p><strong>Stay honest under pressure.</strong> The same skills that make charts persuasive make them deceptive: truncated axes, cherry-picked date ranges, convenient denominators. Present the honest version even when it's less dramatic — include the axis at zero, show the full period, name the sample. Your credibility is a compounding asset; one caught exaggeration spends years of it. When the data is genuinely ambiguous, say so: "the data suggests, but doesn't prove" is a professional sentence, not a weak one.</p>
+<h4>Apply this</h4>
+<p>Take your most interesting sentence from the last lesson and build its one chart. Show it to someone with only the sentence and the chart — if they get it in ten seconds, you've done data storytelling.</p>`
+      },
+      { title: 'Quiz: Data Literacy', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  /* ============ FOUNDATIONAL & EXPANSION — ENTREPRENEURSHIP ============ */
+  {
+    id: 'entrepreneurial-mindset',
+    title: 'The Entrepreneurial Mindset',
+    pillar: 'business',
+    level: 'Foundational',
+    minutes: 40,
+    desc: 'Before the business plan comes the operating system: spotting opportunity in problems, testing ideas cheaply, and taking smart risks — with or without quitting your job.',
+    objectives: [
+      'Recognize opportunities the way entrepreneurs are trained to',
+      'Validate ideas with cheap, fast experiments before building',
+      'Manage risk deliberately — including when to keep the day job'
+    ],
+    skills: ['Opportunity recognition', 'Validation', 'Risk management'],
+    lessons: [
+      {
+        title: 'Thinking Like an Owner',
+        minutes: 12,
+        content: `
+<p>Entrepreneurship isn't a personality type — research on founders keeps failing to find one. It's closer to an <em>operating system</em>: a set of trained habits for noticing value and acting on it. The habits work whether you ever incorporate anything, which is why employers actively seek "entrepreneurial thinking" in employees.</p>
+<p><strong>Habit one: problems are inventory.</strong> Where most people see annoyances, opportunity-trained people see unmet demand. Every complaint you hear repeatedly — "I can never find someone reliable to…", "why is it so hard to…" — is a market whispering. Start a running list; the businesses you're able to build later come almost entirely from this list.</p>
+<p><strong>Habit two: start with what's in hand.</strong> Studies of experienced entrepreneurs (the research tradition is called effectuation) find they don't start with a grand vision and then seek resources — they start from three questions: <em>What do I know? Who do I know? What do I have?</em> and take the first small step available. The Skills Inventory from Turning Skills into a Service is exactly this move.</p>
+<p><strong>Habit three: ownership of outcomes.</strong> The owner's question is never "whose job is this?" — it's "what does this situation need?" Practiced inside a paycheck job, this habit is what gets people promoted; practiced outside one, it's what makes customers trust a one-person business.</p>
+<h4>Apply this</h4>
+<p>Open a note titled "Problems I've Heard Twice." Add three entries from the last month — complaints you've heard from more than one person. That note is now a standing asset; feed it weekly.</p>`
+      },
+      {
+        title: 'Cheap Experiments Beat Big Plans',
+        minutes: 14,
+        content: `
+<p>The classic first-time mistake is building for months, then discovering demand was imaginary. The professional sequence is reversed: <strong>prove someone wants it, then build it.</strong> Validation techniques, in ascending order of strength:</p>
+<ol>
+<li><strong>Ten problem conversations.</strong> Talk to ten people who have the problem — about the <em>problem</em>, not your solution. "How do you handle X today? What have you tried? What does it cost you?" People politely praise ideas; they tell the truth about their problems. If the pain isn't real in these conversations, no product fixes that.</li>
+<li><strong>The concierge test.</strong> Deliver the service completely manually to one or two customers before building anything scalable. Want to test meal-prep-for-seniors? Cook for two households for two weeks. You learn the real workflow, the real costs, and whether people value it — for almost nothing.</li>
+<li><strong>The pre-commitment.</strong> The strongest signal money can't fake: ask for money. A deposit, a pre-order, a signed letter of intent. "Would you buy this?" means nothing; "they bought it before it existed" means everything. Even five pre-orders outweigh five hundred survey responses.</li>
+</ol>
+<p>Frame every experiment with three sentences before you run it: what I believe, what I'll test, what result changes my mind. And treat a failed test as what it is — a cheap success. You just saved yourself the six months and the savings account that building blind would have cost. In the experimenter's accounting, disproof is profit.</p>
+<h4>Apply this</h4>
+<p>Take your strongest idea and schedule two problem conversations this week. Write your three framing sentences first — belief, test, threshold — so the answers can actually change your plan.</p>`
+      },
+      {
+        title: 'Smart Risk and the Day Job',
+        minutes: 12,
+        content: `
+<p>The mythology says entrepreneurs are bold risk-takers. The data says successful ones are usually <strong>risk managers</strong> — studies of founders who kept their day jobs while starting up found they were significantly <em>more</em> likely to succeed than those who leapt, likely because desperation makes bad decisions and runway makes patient ones.</p>
+<p>The toolkit:</p>
+<ul>
+<li><strong>Prefer reversible bets.</strong> Renting before buying, contracting before hiring, three-month commitments before annual ones. The two-way-door principle from Analytical Thinking applies doubly when it's your own money.</li>
+<li><strong>Define your affordable loss.</strong> Before any venture, decide what you can lose — money, months, energy — without damaging your life. Then structure the attempt to fit inside it. This flips the question from "how much could I make?" (fantasy) to "what am I willing to risk to find out?" (strategy).</li>
+<li><strong>The side-business bridge.</strong> Validate and grow while employed; the paycheck funds patience. The common milestone before going full-time: the business consistently produces a meaningful fraction of your income <em>and</em> you have several months of expenses saved (Money Fundamentals covers the cushion). Check your employment agreement for conflict-of-interest clauses — and build in the open with your integrity intact.</li>
+<li><strong>Integrity is compounding capital.</strong> In small business, your reputation travels faster than your marketing. Deals honored, mistakes owned, and promises kept are the cheapest customer-acquisition strategy ever invented.</li>
+</ul>
+<h4>Apply this</h4>
+<p>Write your affordable-loss statement for the idea you're circling: the dollars, the hours per week, and the calendar date at which you'll evaluate honestly. That one paragraph is the difference between a smart bet and a gamble.</p>`
+      },
+      { title: 'Quiz: Entrepreneurial Mindset', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  {
+    id: 'digital-presence',
+    title: 'Digital Presence for Small Business',
+    pillar: 'business',
+    level: 'Core',
+    minutes: 40,
+    desc: 'Customers check you out online before they call. Build the trust layer — business profile, simple site, and a review engine — with free and near-free tools.',
+    objectives: [
+      'Set up the free trust layer: business profile, consistent info, photos',
+      'Stand up a simple, effective one-page web presence',
+      'Build a review engine and handle negative reviews professionally'
+    ],
+    skills: ['Online presence', 'Local marketing', 'Reputation management'],
+    lessons: [
+      {
+        title: 'The Trust Layer Comes First',
+        minutes: 12,
+        content: `
+<p>Before a potential customer calls, they search. What they find in those thirty seconds — or don't find — decides whether the call happens. The good news for a small service business: the highest-impact pieces are free.</p>
+<p><strong>Claim your Google Business Profile first.</strong> For local services it outweighs a website: it's the map pin, the reviews, the hours, and the call button that appear when someone searches "bookkeeper near me." Complete every field — categories, service area, hours, services with prices where possible — and add real photos: you, your work, before-and-afters. Profiles with photos get dramatically more requests than empty ones, and an unclaimed or half-empty profile quietly signals "maybe not in business."</p>
+<p><strong>Make your NAP boringly consistent.</strong> Name, address (or service area), phone — written identically everywhere: profile, social accounts, directories. Inconsistencies confuse both search engines and humans, and both respond with distrust.</p>
+<p><strong>One social profile, chosen by where your buyers look</strong> — and the discipline to keep it current. A Facebook page last updated in 2023 reads worse than no page. As the Marketing & Client Development course argues: one channel done consistently beats five done poorly. Your digital presence is the same principle in permanent form.</p>
+<h4>Apply this</h4>
+<p>Search your business — or the business you're planning — the way a stranger would: your name plus your service plus your town. Write down the three things a stranger would conclude in thirty seconds. That's your to-fix list.</p>`
+      },
+      {
+        title: 'A Simple Site That Works',
+        minutes: 14,
+        content: `
+<p>Most small service businesses need less website than they think — but what they need must be right. A single well-built page outperforms a sprawling site nobody maintains.</p>
+<p><strong>The one-page essentials, in order:</strong></p>
+<ol>
+<li><strong>Who you help and what outcome you deliver</strong> — your positioning sentence, at the top, in plain language. A visitor should know in five seconds whether they're in the right place.</li>
+<li><strong>Proof</strong> — two or three testimonials with names, before/after photos, years in business, certifications. Proof placed high; adjectives are not proof.</li>
+<li><strong>Exactly what you offer</strong> — your services with scope, and prices or "starting at" ranges where your market allows. Pricing transparency filters out mismatches before they cost you a phone call.</li>
+<li><strong>One obvious next step</strong> — call, text, or a short form. One action, repeated down the page, big enough for thumbs. Every additional option measurably reduces response.</li>
+</ol>
+<p><strong>Tools:</strong> free and near-free site builders (the mainstream drag-and-drop options all work) are genuinely sufficient — pick the one whose template you can update yourself, because the ability to make your own changes matters more than any design flourish. A custom domain (about the cost of a lunch, yearly) adds legitimacy. Write like you talk, skip the jargon, and check everything on a phone: most local searches happen there.</p>
+<h4>Apply this</h4>
+<p>Draft your one-pager's content in a document before touching any builder: the headline, three proofs, the services list, the one action. Content first makes the build a two-hour job instead of a two-month stall.</p>`
+      },
+      {
+        title: 'The Review Engine',
+        minutes: 12,
+        content: `
+<p>Reviews are the modern word of mouth — the large majority of consumers read them before choosing a local business, and they trust volume plus recency plus <em>how you respond</em>. Which means reviews are a system you run, not luck you receive.</p>
+<p><strong>Engineer the ask.</strong> Satisfied customers leave reviews when asked at the right moment with zero friction: right after the visible win ("So glad the books balanced! Would you mind sharing that in a quick review? Here's the direct link"), by text, with the link included. Ask every happy customer as part of your closing routine — a handful of recent reviews outperforms a hundred stale ones. Never buy or fake reviews: platforms detect it, customers smell it, and in the U.S. the FTC penalizes it.</p>
+<p><strong>Respond to everything.</strong> Positive reviews get a short, specific thank-you (future customers read your responses as a preview of working with you). Negative reviews get the LAST treatment from Customer Service Excellence, in public: acknowledge, apologize for the experience, state what you're doing, and move detail offline — "I'd like to make this right; please call me directly." A calm, accountable response to a bad review often wins more trust than the five-star reviews around it. Never argue publicly; one defensive reply undoes fifty good reviews.</p>
+<p><strong>Feed the presence on a rhythm you can keep.</strong> One before/after post, one tip, or one finished-job photo per week keeps the profile visibly alive. Consistency over virality — the goal isn't an audience; it's that the next searcher concludes, in thirty seconds, that you're real, good, and responsive.</p>
+<h4>Apply this</h4>
+<p>Write your review-ask message — two sentences plus the direct link — and your response template for a negative review. Having both ready before you need them is what makes the system run itself.</p>`
+      },
+      { title: 'Quiz: Digital Presence', type: 'quiz', minutes: 8 }
     ]
   }
 ];
@@ -1520,6 +2104,366 @@ const QUIZ_BANK = {
       ],
       answer: 1,
       explain: 'Independent income arrives untaxed, and self-employment adds obligations employees never see. The mechanism (automatic, every payment) is non-negotiable; the exact percentage is a professional-consult item.'
+    }
+  ],
+
+  'learning-to-learn': [
+    {
+      q: 'Why does self-testing beat rereading, according to memory research?',
+      options: [
+        'Rereading takes longer per page',
+        'Retrieval — pulling information out of your head — is what physically strengthens memory; rereading only builds familiarity that fades',
+        'Tests are more stressful, and stress improves memory',
+        'Rereading only works for visual learners'
+      ],
+      answer: 1,
+      explain: 'Testing isn’t a measurement of learning; it IS the learning. Rereading produces the feeling of knowing without the durable memory.'
+    },
+    {
+      q: 'You have three hours to learn material for next month. The most effective schedule is:',
+      options: [
+        'One three-hour session — deep immersion beats fragments',
+        'Three one-hour sessions on consecutive days, then nothing',
+        'Several short sessions spaced across weeks, reviewing right as forgetting begins',
+        'Save all three hours for the night before you need it'
+      ],
+      answer: 2,
+      explain: 'The spacing effect: reviewing at expanding intervals — right as memory starts to fade — produces dramatically better retention from identical total time.'
+    },
+    {
+      q: 'The "explain it simply" (Feynman) technique is powerful because:',
+      options: [
+        'Simple explanations are more polite',
+        'It reveals exactly where your understanding has gaps — wherever you stall or reach for jargon',
+        'Twelve-year-olds are the best judges of accuracy',
+        'It replaces the need for any practice'
+      ],
+      answer: 1,
+      explain: 'Fluent recognition hides gaps; forced plain-language explanation exposes them precisely, telling you exactly what to review.'
+    }
+  ],
+
+  'personal-finance': [
+    {
+      q: 'What does "pay yourself first" mean in practice?',
+      options: [
+        'Spend on wants before bills, since happiness matters',
+        'Savings transfers automatically on payday, before spending starts — ordering beats willpower',
+        'Pay off all debt before saving anything at all',
+        'Give yourself a weekly cash allowance'
+      ],
+      answer: 1,
+      explain: 'Automation on payday removes the monthly decision that spending pressure always wins. Any amount counts; the ordering is the mechanism.'
+    },
+    {
+      q: 'Which two factors dominate your credit score?',
+      options: [
+        'Your income and your education level',
+        'How many cards you have and where you shop',
+        'On-time payment history and how much of your available credit you use',
+        'Your age and your employer'
+      ],
+      answer: 2,
+      explain: 'Payment history and utilization (keep it under ~30% of limits, lower is better) drive most of the score. Income isn’t even in the formula.'
+    },
+    {
+      q: 'The first emergency-fund target the course recommends is:',
+      options: [
+        'A full year of salary before anything else',
+        '$500–$1,000 in a separate account — enough to turn a car repair into an inconvenience instead of a debt spiral',
+        'Whatever fits in your checking account',
+        'Investing it all in stocks for higher returns'
+      ],
+      answer: 1,
+      explain: 'Small and achievable first, then grow toward months of expenses in a separate high-yield account. Emergency money’s job is stability, not returns.'
+    }
+  ],
+
+  'creative-thinking': [
+    {
+      q: 'Why should idea generation and idea evaluation be separated?',
+      options: [
+        'Evaluation is management’s job, not yours',
+        'Judging during generation kills output — the inner critic at idea three prevents the better ideas that arrive after idea ten',
+        'Generation should be done alone, evaluation in groups',
+        'They require different software'
+      ],
+      answer: 1,
+      explain: 'Quantity precedes quality: the non-obvious ideas come after the obvious ones are exhausted, which never happens if each idea is judged on arrival.'
+    },
+    {
+      q: 'Your brainstorm is stuck. The course suggests:',
+      options: [
+        'Waiting for inspiration to return naturally',
+        'Adding a constraint ("without spending money"), running SCAMPER, or inverting the question ("how would we guarantee failure?")',
+        'Ending the session — stuck means the idea pool is empty',
+        'Asking only the most creative person to continue'
+      ],
+      answer: 1,
+      explain: 'Creativity responds to procedure: constraints give traction, SCAMPER forces seven angles, and inversion converts the easy failure-list into an improvement plan.'
+    },
+    {
+      q: 'The best way to pitch a novel idea to a cautious decision-maker is:',
+      options: [
+        'Present the full vision with maximum enthusiasm',
+        'A reversible, time-boxed pilot with a named cost and a metric that decides — pricing the risk instead of hiding it',
+        'Wait until the idea is perfect before showing anyone',
+        'Get their boss to mandate it'
+      ],
+      answer: 1,
+      explain: 'Decision-makers reject unpriced risk, not novelty. "Two weeks, one team, X hours, we stop if the number doesn’t move" makes yes cheap.'
+    }
+  ],
+
+  'project-management': [
+    {
+      q: 'The project triangle means:',
+      options: [
+        'Every project needs exactly three people',
+        'Scope, time, and resources constrain each other — when one moves, another must, and pretending otherwise causes the crisis later',
+        'Projects should be planned in three phases',
+        'Three stakeholders must sign off before starting'
+      ],
+      answer: 1,
+      explain: 'You can’t compress the deadline while keeping full scope and the same resources. Making the trade explicit at kickoff is the professional move.'
+    },
+    {
+      q: 'Why does every task need exactly one owner?',
+      options: [
+        'It simplifies the payroll',
+        'Shared ownership is no ownership — "we’ll all handle it" reliably delivers nothing on time',
+        'One person should do all the work themselves',
+        'Software licenses are usually per-seat'
+      ],
+      answer: 1,
+      explain: 'Accountability doesn’t divide. Others can help, but one name is responsible for each task reaching done.'
+    },
+    {
+      q: 'Estimates for your project total six weeks. Experience with the planning fallacy suggests you should:',
+      options: [
+        'Commit to six weeks — padding is dishonest',
+        'Commit to four weeks to motivate the team',
+        'Add a honest buffer (30–50%) at the project level and manage scope changes with visible trade-offs',
+        'Refuse to give any estimate'
+      ],
+      answer: 2,
+      explain: 'Optimism in estimation is one of psychology’s most replicated findings. Project-level buffer plus scope discipline is how deadlines survive reality.'
+    }
+  ],
+
+  'job-search-foundations': [
+    {
+      q: 'A large share of jobs are filled through referrals and connections. The practical implication is:',
+      options: [
+        'Job boards are useless and should be ignored',
+        'Send a specific ask ("I’m looking for X — know anyone I should talk to?") to people who know your work, alongside board and direct applications',
+        'Only apply to companies where you already know the CEO',
+        'Attend as many networking events as possible'
+      ],
+      answer: 1,
+      explain: 'The hidden market responds to specific, forwardable requests — especially to former coworkers who can vouch for you. Boards stay in the mix; they’re just one channel.'
+    },
+    {
+      q: 'Which posting detail is a scam red flag?',
+      options: [
+        'The salary range is posted publicly',
+        'The company asks for two references',
+        'They conduct the "interview" entirely by chat app and ask for bank details before any offer',
+        'The application requires a cover letter'
+      ],
+      answer: 2,
+      explain: 'Chat-only interviews, requests for banking or ID documents pre-offer, and any request to send money are classic hiring-scam patterns. Legitimate employers never ask you to pay.'
+    },
+    {
+      q: 'The course recommends treating a longer search like:',
+      options: [
+        'A sprint — apply to everything the first week',
+        'A part-time job with set hours, a stopping time, parallel skill-building, and free resources like libraries and American Job Centers',
+        'A waiting game — good things come to those who wait',
+        'A secret — tell no one until you have an offer'
+      ],
+      answer: 1,
+      explain: 'Bounded structure sustains months; unbounded searching burns out by week three. And the free workforce infrastructure exists precisely for this moment.'
+    }
+  ],
+
+  'customer-service': [
+    {
+      q: 'A customer arrives angry about a late order. Per LAST, your first move is:',
+      options: [
+        'Explain the shipping company’s fault immediately',
+        'Offer a discount before they finish talking',
+        'Let them fully explain without interruption, taking notes',
+        'Transfer them to a supervisor right away'
+      ],
+      answer: 2,
+      explain: 'Listen comes first — most escalation happens because someone was cut off. The venting empties the tank; the notes power the solve.'
+    },
+    {
+      q: '"I’m sorry this happened — I’d be frustrated too" is effective because:',
+      options: [
+        'It legally admits fault, which customers appreciate',
+        'It acknowledges the experience without assigning blame, proving the person was heard before the fix begins',
+        'It buys time to think of excuses',
+        'Scripts always outperform natural speech'
+      ],
+      answer: 1,
+      explain: 'Acknowledgment isn’t admission — it’s receipt confirmation. Customers who feel heard become solvable; customers who don’t escalate.'
+    },
+    {
+      q: 'When does de-escalation stop applying?',
+      options: [
+        'After five minutes of any complaint',
+        'When the customer raises their voice at all',
+        'When frustration becomes abuse — slurs, threats, personal attacks — which gets one boundary statement, then escalation per policy',
+        'Never; the customer is always right'
+      ],
+      answer: 2,
+      explain: 'De-escalation serves frustrated customers; absorbing abuse is not part of any job. Know your escalation path before you need it.'
+    }
+  ],
+
+  'info-literacy': [
+    {
+      q: 'You need trustworthy data on job growth for a career decision. The strongest search is:',
+      options: [
+        'Whatever the first result says',
+        'A search restricted to authoritative sources, e.g. site:bls.gov with your occupation — going beneath the blog layer',
+        'The most-viewed video on the topic',
+        'Asking in a Facebook group'
+      ],
+      answer: 1,
+      explain: 'For consequential questions, go to the source layer: government data, major institutions, and library databases — not the content farms optimized to rank above them.'
+    },
+    {
+      q: 'The "I" in SIFT — Investigate the source — is done by:',
+      options: [
+        'Reading more articles from the same source until you trust it',
+        'Opening a new tab and reading what OTHERS say about the source (lateral reading)',
+        'Checking whether the website looks professional',
+        'Counting the ads on the page'
+      ],
+      answer: 1,
+      explain: 'Fact-checkers read laterally — about the source, not just within it. Design quality and confident tone are trivially fakeable; reputation across the web is not.'
+    },
+    {
+      q: 'A shocking video exists on exactly one anonymous account and nowhere else. The information-literate conclusion is:',
+      options: [
+        'It must be true — mainstream media is suppressing it',
+        'Judge it by video quality and lighting',
+        'Extraordinary footage with no provenance and no credible coverage is evidence of nothing yet — check who posted it first, when, and whether the event appears anywhere reliable',
+        'Share it and let your followers decide'
+      ],
+      answer: 2,
+      explain: 'In the AI era, provenance beats pixels: origin, timing, and corroboration are the durable checks. "Only exists in one place" is itself a finding.'
+    }
+  ],
+
+  'data-literacy': [
+    {
+      q: '"Average salary here is $95,000" — but nine employees earn $50,000 and one earns $500,000. What should you ask for?',
+      options: [
+        'The mode',
+        'The median — the middle value, which resists distortion by outliers in lopsided distributions',
+        'The maximum',
+        'A larger average'
+      ],
+      answer: 1,
+      explain: 'Averages are dragged by extremes; the median ($50,000 here) describes the typical case. For salaries, prices, and followers, ask for the median.'
+    },
+    {
+      q: 'Store A has 40 complaints this month; Store B has 12. Before concluding B is better, you must:',
+      options: [
+        'Check which manager is more experienced',
+        'Normalize by volume — complaints per 100 orders — since totals mislead when group sizes differ',
+        'Average the two numbers',
+        'Wait another month'
+      ],
+      answer: 1,
+      explain: 'Rates before conclusions: a store with 10× the orders can have more total complaints and far better service per order. Dividing by the denominator is the professional move.'
+    },
+    {
+      q: 'Your finding: complaints dropped 40% after a process change. The honest, effective way to present it is:',
+      options: [
+        'A pie chart of all complaint categories since 2020',
+        'Lead with the recommendation and the finding, one simple chart with an honest axis, full period shown, sample named',
+        'Start with a 10-slide walkthrough of your analysis process',
+        'A bar chart with the axis starting at 55% to make the drop look bigger'
+      ],
+      answer: 1,
+      explain: 'One chart, one message; conclusion first; axes honest even when less dramatic. Credibility compounds — and one caught exaggeration spends years of it.'
+    }
+  ],
+
+  'entrepreneurial-mindset': [
+    {
+      q: '"Problems are inventory" means:',
+      options: [
+        'Successful businesses stockpile complaints for legal protection',
+        'Complaints you hear repeatedly are unmet demand — a running list of them becomes the source of future business ideas',
+        'Inventory management is the biggest business problem',
+        'You should solve every problem you encounter'
+      ],
+      answer: 1,
+      explain: 'Where most people hear annoyances, opportunity-trained people hear markets whispering. The "heard it twice" list is a standing asset.'
+    },
+    {
+      q: 'The strongest pre-build validation signal is:',
+      options: [
+        'Friends saying the idea sounds great',
+        'A large number of social media likes',
+        'Money committed before the thing exists — deposits, pre-orders, signed intent',
+        'A detailed 40-page business plan'
+      ],
+      answer: 2,
+      explain: 'People politely praise ideas and honestly spend money. Five pre-orders outweigh five hundred survey responses.'
+    },
+    {
+      q: 'Research on founders who kept their day jobs while starting up found they:',
+      options: [
+        'Failed more often due to divided attention',
+        'Succeeded more often — the paycheck funds patience, and desperation makes bad decisions',
+        'Were legally barred from starting businesses',
+        'Took twice as long with identical outcomes'
+      ],
+      answer: 1,
+      explain: 'Smart risk-taking looks boring: affordable loss defined, reversible bets preferred, runway protected. The leap is optional; the discipline isn’t.'
+    }
+  ],
+
+  'digital-presence': [
+    {
+      q: 'For a new local service business, the highest-impact free digital asset is:',
+      options: [
+        'A TikTok account posting daily',
+        'A completed Google Business Profile with categories, photos, and reviews — the map pin customers actually find',
+        'A press release',
+        'A paid banner ad campaign'
+      ],
+      answer: 1,
+      explain: 'Local searches surface the profile before any website. Complete fields + real photos + recent reviews is the free trust layer that drives calls.'
+    },
+    {
+      q: 'The one-page website’s most important content rule is:',
+      options: [
+        'Maximum information — every service ever offered, in detail',
+        'Positioning up top, proof high, clear offers, and ONE obvious next-step action repeated down the page',
+        'An animated intro to demonstrate professionalism',
+        'No prices anywhere, to force phone calls'
+      ],
+      answer: 1,
+      explain: 'Five seconds to "am I in the right place?", proof over adjectives, and a single call-to-action — every added option measurably reduces response.'
+    },
+    {
+      q: 'You receive an unfair negative review. The professional response is:',
+      options: [
+        'A detailed public rebuttal proving the customer wrong',
+        'Report it and hope it disappears',
+        'Acknowledge publicly, apologize for the experience, state what you’re doing, and move detail offline — future customers are reading your composure',
+        'Have friends post five-star reviews to bury it'
+      ],
+      answer: 2,
+      explain: 'The public reply is really addressed to the next customer. Calm accountability wins more trust than the stars around it; fake reviews are detectable and FTC-sanctionable.'
     }
   ]
 };

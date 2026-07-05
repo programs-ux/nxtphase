@@ -69,7 +69,10 @@ const ICONS = {
   users: '<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9"/><path d="M16 3.1a4 4 0 0 1 0 7.8"/>',
   smartphone: '<rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18.01"/>',
   alert: '<circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12" y2="16.01"/>',
-  library: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>'
+  library: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+  volume: '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.8 5.8a9 9 0 0 1 0 12.4"/>',
+  stop: '<rect x="6" y="6" width="12" height="12" rx="1.5"/>',
+  zap: '<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>'
 };
 
 function icon(name, size, cls) {
@@ -130,7 +133,65 @@ function totals() {
 
 /* ---------------- navigation ---------------- */
 
+/* ---------------- lesson audio (text-to-speech microlearning) ---------------- */
+
+let _speaking = false;
+
+function speechSupported() {
+  return 'speechSynthesis' in window && 'SpeechSynthesisUtterance' in window;
+}
+
+function stopListening() {
+  if (speechSupported()) window.speechSynthesis.cancel();
+  _speaking = false;
+  updateListenBtn();
+}
+
+function toggleListen(courseId, idx) {
+  if (!speechSupported()) return;
+  if (_speaking) { stopListening(); return; }
+  const c = getCourseById(courseId);
+  if (!c || !c.lessons[idx]) return;
+  const l = c.lessons[idx];
+  const div = document.createElement('div');
+  div.innerHTML = l.content || '';
+  const text = l.title + '. ' + (div.textContent || '').replace(/\s+/g, ' ').trim();
+  // Chunk into sentences (~200 chars) — long single utterances stall in some browsers.
+  const sentences = text.match(/[^.!?]+[.!?]+[\s]*|[^.!?]+$/g) || [text];
+  const chunks = [];
+  let buf = '';
+  sentences.forEach(s => {
+    if ((buf + s).length > 200 && buf) { chunks.push(buf); buf = s; }
+    else buf += s;
+  });
+  if (buf.trim()) chunks.push(buf);
+
+  window.speechSynthesis.cancel();
+  chunks.forEach((chunk, i) => {
+    const u = new SpeechSynthesisUtterance(chunk);
+    u.rate = 1;
+    if (i === chunks.length - 1) {
+      u.onend = () => { _speaking = false; updateListenBtn(); };
+    }
+    u.onerror = () => { _speaking = false; updateListenBtn(); };
+    window.speechSynthesis.speak(u);
+  });
+  _speaking = true;
+  updateListenBtn();
+}
+
+function updateListenBtn() {
+  const b = document.getElementById('listen-btn');
+  if (b) {
+    b.innerHTML = _speaking
+      ? icon('stop', 14) + ' Stop audio'
+      : icon('volume', 14) + ' Listen to this lesson';
+    b.setAttribute('aria-pressed', _speaking ? 'true' : 'false');
+  }
+}
+
 function navigate(view, extra, opts) {
+  stopListening();
   state.view = view;
   if (extra && extra.courseId !== undefined) state.currentCourse = extra.courseId;
   if (extra && extra.lesson !== undefined) state.currentLesson = extra.lesson;
@@ -301,6 +362,19 @@ function continueTarget() {
   return started[0] || null;
 }
 
+function microLesson() {
+  // Shortest incomplete lesson, preferring the user's focus areas
+  const focus = (state.user && state.user.focus) || [];
+  let best = null, bestFocus = null;
+  COURSES.forEach(c => c.lessons.forEach((l, i) => {
+    if (l.type === 'quiz' || lessonDone(c.id, i)) return;
+    const entry = { c, l, i };
+    if (!best || l.minutes < best.l.minutes) best = entry;
+    if (focus.includes(c.pillar) && (!bestFocus || l.minutes < bestFocus.l.minutes)) bestFocus = entry;
+  }));
+  return bestFocus || best;
+}
+
 function recommendedCourses(max) {
   const focus = (state.user && state.user.focus) || [];
   const notDone = COURSES.filter(c => !courseComplete(c));
@@ -334,6 +408,22 @@ function renderDashboard() {
         <div class="stat-chip"><div class="num">${t.minutes}</div><div class="lbl">Minutes of learning</div></div>
       </div>
     </section>
+
+    ${(() => {
+      const m = microLesson();
+      if (!m) return '';
+      return `
+    <section class="section" aria-label="Micro-lesson suggestion">
+      <div class="card resource-card micro-card">
+        <span class="ri">${icon('zap', 22)}</span>
+        <div style="flex:1">
+          <div class="rn">Have ${m.l.minutes} minutes? That's enough.</div>
+          <div class="rd">“${m.l.title}” — from ${escapeHtml(m.c.title)}. Read it or listen to it; small sessions compound.</div>
+          <button class="btn btn-outline btn-sm" onclick="navigate('lesson',{courseId:'${m.c.id}',lesson:${m.i}})">Start micro-lesson</button>
+        </div>
+      </div>
+    </section>`;
+    })()}
 
     <section class="section" aria-label="Daily insight">
       <blockquote class="card quote-card">
@@ -414,19 +504,35 @@ function courseCard(c) {
   </button>`;
 }
 
+let _levelFilter = 'All';
+
+function setLevelFilter(f) {
+  _levelFilter = f;
+  renderApp();
+}
+
 function renderCourses() {
+  const levels = ['All', 'Foundational', 'Core'];
   return `
   <div class="container">
     <h1>Course Library</h1>
-    <p style="color:var(--text-dim)">Every course is free, self-paced, and takes under an hour. Curriculum is aligned to the skills employers rank highest in global workforce research.</p>
-    ${PILLARS.map(p => `
+    <p style="color:var(--text-dim); max-width:72ch">Every course is free, self-paced, and takes under an hour — and every lesson can be played as audio. Curriculum is aligned to the skills employers rank highest in global workforce research. Start with <strong>Foundational</strong> courses to build transferable base skills, then advance to <strong>Core</strong>.</p>
+    <div class="filter-row" role="group" aria-label="Filter courses by level">
+      ${levels.map(f => `
+        <button class="filter-chip ${_levelFilter === f ? 'active' : ''}" onclick="setLevelFilter('${f}')" ${_levelFilter === f ? 'aria-pressed="true"' : 'aria-pressed="false"'}>${f === 'All' ? 'All levels' : f}</button>
+      `).join('')}
+    </div>
+    ${PILLARS.map(p => {
+      const cs = getCoursesByPillar(p.id).filter(c => _levelFilter === 'All' || c.level === _levelFilter);
+      if (!cs.length) return '';
+      return `
       <section class="section" aria-label="${p.label}">
         <div class="section-head"><h2><span class="h-ico" style="color:${p.color}">${icon(p.icon, 20)}</span> ${p.label}</h2></div>
         <div class="card-grid">
-          ${getCoursesByPillar(p.id).map(courseCard).join('')}
+          ${cs.map(courseCard).join('')}
         </div>
-      </section>
-    `).join('')}
+      </section>`;
+    }).join('')}
   </div>`;
 }
 
@@ -525,6 +631,13 @@ function renderLesson() {
     </div>
     <article class="card">
       <h2>${l.title}</h2>
+      ${speechSupported() ? `
+      <div class="listen-row">
+        <button id="listen-btn" class="btn btn-outline btn-sm" onclick="toggleListen('${c.id}',${idx})" aria-pressed="false">
+          ${icon('volume', 14)} Listen to this lesson
+        </button>
+        <span class="listen-hint">Audio mode — learn while you commute, cook, or multitask.</span>
+      </div>` : ''}
       <div class="lesson-body">${l.content}</div>
     </article>
     <div class="lesson-nav-row">
