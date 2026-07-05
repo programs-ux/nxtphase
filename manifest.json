@@ -1,0 +1,15 @@
+{
+  "name": "NXT Phase Learning",
+  "short_name": "NXT Phase",
+  "description": "Free self-paced courses in personal development, workforce skills, and technical skills — plus local mental health and library resources.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0B1026",
+  "theme_color": "#0B1026",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+  ]
+}
