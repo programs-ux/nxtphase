@@ -8,25 +8,41 @@ const PILLARS = [
     id: 'personal',
     label: 'Personal Development',
     short: 'Personal',
-    icon: '🌱',
+    icon: 'user',
     color: 'var(--gold)',
-    desc: 'Build the inner skills — mindset, emotional intelligence, and focus — that power every other goal.'
+    desc: 'The inner skills that power every other goal: mindset, emotional intelligence, and disciplined focus.'
+  },
+  {
+    id: 'professional',
+    label: 'Professional Development',
+    short: 'Professional',
+    icon: 'trending-up',
+    color: 'var(--blue)',
+    desc: 'The competencies employers rank highest worldwide: analytical thinking, adaptability, and leadership.'
   },
   {
     id: 'workforce',
     label: 'Workforce Skills',
     short: 'Workforce',
-    icon: '💼',
+    icon: 'briefcase',
     color: 'var(--teal)',
-    desc: 'Practical, job-ready skills: presenting yourself, interviewing, and communicating like a professional.'
+    desc: 'Job-search and workplace execution: presenting yourself, interviewing, and communicating professionally.'
   },
   {
     id: 'technical',
     label: 'Technical Skills',
     short: 'Technical',
-    icon: '💻',
+    icon: 'monitor',
     color: 'var(--violet)',
-    desc: 'Digital confidence for modern work — from staying safe online to spreadsheets and AI tools.'
+    desc: 'Digital capability for modern work: security fundamentals, spreadsheets, and applied AI tools.'
+  },
+  {
+    id: 'business',
+    label: 'Entrepreneurship & Independent Work',
+    short: 'Entrepreneurship',
+    icon: 'compass',
+    color: 'var(--sage)',
+    desc: 'Convert skills into income: package a service, develop clients, and run the business side with discipline.'
   }
 ];
 
@@ -77,7 +93,7 @@ const COURSES = [
 <p>Psychologist Carol Dweck spent decades studying why some people grow through challenges while others shut down. Her finding was simple but powerful: it often comes down to what you believe about ability itself.</p>
 <p>A <strong>fixed mindset</strong> says talent is something you either have or you don't. Under that belief, every challenge is a test of your worth — so failure feels like proof you're not enough, and it's safer not to try.</p>
 <p>A <strong>growth mindset</strong> says ability is built, like muscle. Under that belief, challenges are workouts, effort is the path, and failure is information. Neither mindset is permanent — most of us hold both, in different areas of life. The skill is noticing which one is driving.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Think of one area where you feel confident learning new things, and one where you tell yourself "I'm just not a ___ person." Write both down. That second one is where this course will pay off.</p>`
       },
       {
@@ -92,7 +108,7 @@ const COURSES = [
 <li><strong>"They're just naturally good at this"</strong> → "They've practiced this more than I have — what did their practice look like?"</li>
 <li><strong>"I failed"</strong> → "That attempt failed. What did it teach me about the next one?"</li>
 </ul>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>For the next 24 hours, keep a note on your phone. Every time you catch a fixed-mindset thought, write it down and write the reframe next to it. Most people are surprised how often it happens — and how mechanical the fix becomes.</p>`
       },
       {
@@ -106,7 +122,7 @@ const COURSES = [
 <li><strong>Schedule the next attempt.</strong> A lesson without a next attempt is just a regret. Put the retry on the calendar while the lesson is fresh.</li>
 </ol>
 <p>This loop is why growth-minded people seem "lucky" over time. They simply get more attempts per year than people who stop to recover their self-image after every miss.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Pick a recent setback — small is fine. Run it through the loop on paper: the factual name, the one lesson, the scheduled next attempt. Notice how different it feels from replaying it.</p>`
       },
       { title: 'Quiz: Growth Mindset', type: 'quiz', minutes: 8 }
@@ -139,7 +155,7 @@ const COURSES = [
 <li><strong>Relationship management:</strong> using all of the above to handle conflict, give feedback, and build trust.</li>
 </ul>
 <p>Notice the order — it's a ladder. You can't manage an emotion you haven't noticed, and you can't read others well while your own signal is drowning everything out. Every EQ skill starts with self-awareness.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Set two random phone alarms today. When each goes off, name what you're feeling in one or two words. That's the whole exercise — and it's the foundation of the entire skill set.</p>`
       },
       {
@@ -154,7 +170,7 @@ const COURSES = [
 <li><strong>Name.</strong> Silently label the feeling as precisely as you can. "Angry" is okay; "disrespected in front of the team" is better.</li>
 <li><strong>Choose.</strong> Ask: "What outcome do I actually want here?" Then respond toward that outcome, not the feeling.</li>
 </ol>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Write down your most common trigger at work or home. Script your pause-name-choose response for it now, in advance. Hot moments are a terrible time to improvise.</p>`
       },
       {
@@ -170,7 +186,7 @@ const COURSES = [
 <li><strong>Let silence work.</strong> A two-second pause after they stop talking often produces the most honest sentence of the conversation.</li>
 </ul>
 <p>People rarely remember your exact words. They remember whether they felt heard — and that feeling is what earns you influence when it's your turn to talk.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>In your next real conversation, don't offer a single opinion until you've reflected back what you heard and they've confirmed you got it right. Watch what it does to the temperature of the conversation.</p>`
       },
       { title: 'Quiz: Emotional Intelligence', type: 'quiz', minutes: 8 }
@@ -203,7 +219,7 @@ const COURSES = [
 <li><strong>Neither — Delete.</strong> Doom-scrolling knows what it did.</li>
 </ul>
 <p>The people who seem calm and productive aren't faster than you. They just spend more hours in box two, which quietly prevents most future box-one emergencies.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Dump tomorrow's to-do list into the four boxes. Most people find 60% of their list sits in box three. Pick one box-two item and give it your first hour instead.</p>`
       },
       {
@@ -218,7 +234,7 @@ const COURSES = [
 <li><strong>Guard the block like a meeting.</strong> Notifications off, tab count down, and tell people when you'll resurface. A visible "back at 11" buys you more grace than you'd expect.</li>
 <li><strong>Leave gaps.</strong> Schedule only 60–70% of your day. Real life needs the margin, and a schedule with no slack shatters instead of flexing.</li>
 </ul>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Right now, put one 60-minute block on tomorrow's calendar for your most important non-urgent task. Name the block after the task. That's time blocking — everything else is refinement.</p>`
       },
       {
@@ -229,7 +245,7 @@ const COURSES = [
 <p>Most people cycle through predictable phases each day: a <strong>peak</strong> (sharp, focused — great for analysis and writing), a <strong>trough</strong> (foggy — the danger zone for important decisions), and a <strong>rebound</strong> (looser, more creative — good for brainstorming and conversations). For most people the peak is morning and the trough is early-to-mid afternoon, but night owls run the pattern in reverse.</p>
 <p>The strategy is simple: <strong>match the task to the phase</strong>. Deep, careful work goes in your peak. Email, errands, and routine tasks go in your trough. Creative and social work goes in your rebound. Same hours, dramatically different output.</p>
 <p>And protect the machine that produces the energy: sleep is a performance tool, movement resets a foggy brain faster than caffeine, and real breaks (walk, water, window — not another screen) are how the next block gets paid for.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>For three days, rate your energy 1–10 at 9 a.m., noon, 3 p.m., and 7 p.m. Then move your hardest daily task into your highest-rated slot. This one change outperforms most productivity apps.</p>`
       },
       { title: 'Quiz: Time & Energy', type: 'quiz', minutes: 8 }
@@ -258,7 +274,7 @@ const COURSES = [
 <p>Recruiters spend an average of six to eight seconds on a first résumé scan — and before a human sees it at all, applicant tracking software (ATS) often filters it. Your résumé has two audiences, and it must pass both.</p>
 <p><strong>For the software:</strong> use a simple single-column layout, standard section headings (Experience, Education, Skills), and no tables, text boxes, photos, or graphics — ATS parsers choke on them. Mirror keywords from the actual job posting: if they say "customer service," don't only say "client relations."</p>
 <p><strong>For the human:</strong> the top third of the page decides everything. Put your name, a one-line professional summary tailored to the role, and your strongest relevant wins where the eyes land first. One page is right for most people with under ten years of experience.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Open a job posting you'd actually want. Highlight every skill and keyword it repeats. That highlighted list is the vocabulary your résumé needs to speak — this single habit beats most résumé "hacks."</p>`
       },
       {
@@ -274,7 +290,7 @@ const COURSES = [
 </ul>
 <p>No numbers on hand? Estimate honestly ("about 30 calls a day") or quantify scope ("across 4 departments", "for a 200-student program"). Almost any job produces numbers once you look: how many, how often, how much faster, how much saved.</p>
 <p>Start every bullet with a strong verb — led, built, resolved, reduced, launched — and cut "responsible for" from your vocabulary entirely.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Take your three most boring résumé bullets and rewrite each with the formula. If a bullet truly has no result you can name, ask whether it deserves the space at all.</p>`
       },
       {
@@ -289,7 +305,7 @@ const COURSES = [
 <li><strong>A recent-activity pulse:</strong> even occasional thoughtful comments in your field signal you're engaged. You never need to become an "influencer."</li>
 <li><strong>An audit of the rest:</strong> search your own name in a private browser window. Anything public and unprofessional either gets cleaned up or locked down.</li>
 </ul>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Rewrite your LinkedIn headline using this pattern: <em>[what you are] + [what you're great at or moving toward]</em>. Then check that it agrees with the summary line at the top of your résumé.</p>`
       },
       { title: 'Quiz: Résumé & Branding', type: 'quiz', minutes: 8 }
@@ -322,7 +338,7 @@ const COURSES = [
 <li><strong>R — Result:</strong> how it ended, with a number if possible, plus what you learned.</li>
 </ul>
 <p>Target 90 seconds to two minutes per answer. Shorter feels thin; longer loses the room. And it's completely fine to pause and say "Let me think of a good example" — composure reads as competence.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Write one full STAR story right now about a problem you solved. Say it out loud twice. Stories rehearsed aloud come back under pressure; stories only written down don't.</p>`
       },
       {
@@ -340,7 +356,7 @@ const COURSES = [
 </ol>
 <p>One rich story can serve several themes if you shift the emphasis. For the failure question: pick a real one, spend one sentence on the failure and four on what you changed — accountability plus growth is exactly what they're listening for.</p>
 <p>Also prepare the openers: "Tell me about yourself" wants your present-past-future in 60 seconds, not your biography. "Why do you want this job?" wants proof you researched <em>them</em>, connected to what <em>you</em> bring.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Make a six-row table, one row per theme. Fill in a one-line story title for each. This "story bank" is the single highest-return hour of interview prep that exists.</p>`
       },
       {
@@ -356,7 +372,7 @@ const COURSES = [
 <li>"What do you enjoy most about working here?"</li>
 </ul>
 <p>Then send a short thank-you note within 24 hours that references something specific you discussed. A minority of candidates do it; it keeps you distinct while they decide.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Research the typical pay range for a job you want (state listings and salary sites make this fast) and write down your range. Deciding your number before the room is how you avoid deciding it in the room.</p>`
       },
       { title: 'Quiz: Interview Confidence', type: 'quiz', minutes: 8 }
@@ -390,7 +406,7 @@ const COURSES = [
 <li><strong>Close with who-does-what-by-when.</strong> "Could you confirm by Wednesday?" turns a message into a plan.</li>
 </ul>
 <p>Tone check: written words lose your friendly voice. Before sending anything sensitive, read it once as if you were annoyed with the sender — if it can be read cold, warm it up or say it in person.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Find the last long email you sent. Rewrite it: point in the subject, ask in line one, bullets for the rest. Compare lengths — clarity is usually shorter.</p>`
       },
       {
@@ -405,7 +421,7 @@ const COURSES = [
 <li><strong>Interrupted mid-thought?</strong> Calm and factual: "Let me finish the thought, then I'd love your take." Once, evenly, is usually enough.</li>
 <li><strong>Volunteer for the recap.</strong> "So we're deciding X, and Jordan owns Y by Friday?" The person who summarizes gets remembered as the person who was on top of it.</li>
 </ul>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Before your next meeting, write one question and one observation on a sticky note. Say at least one of them in the first ten minutes. Repeat for three meetings and it stops requiring courage.</p>`
       },
       {
@@ -420,7 +436,7 @@ const COURSES = [
 </ol>
 <p>Notice the last clause — an invitation, not a verdict. Sometimes the answer is a reason you didn't know, and the request changes. That openness is what keeps disagreement collaborative instead of adversarial.</p>
 <p>If a conversation heats up: slow your pace, drop your volume slightly, and if needed, name a pause — "I want to get this right; can we pick it up after lunch?" Walking away to cool down is a skill, not a retreat. And escalating to a manager after honest direct attempts isn't tattling; bring the same facts-impact-request framing with you.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Think of a low-stakes friction point in your life right now. Script it as situation-impact-request and try it this week. Practice on small conflicts is what makes the big ones survivable.</p>`
       },
       { title: 'Quiz: Communicating at Work', type: 'quiz', minutes: 8 }
@@ -453,7 +469,7 @@ const COURSES = [
 <li><strong>One inbox folder.</strong> Downloads is where chaos accumulates. Once a week, sweep it: file it, or delete it.</li>
 <li><strong>Back up automatically.</strong> A free cloud drive (Google Drive, iCloud, OneDrive) syncing your key folders means a lost phone or dead laptop is an inconvenience, not a catastrophe. The rule: anything that would hurt to lose exists in two places.</li>
 </ul>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Create your top-level folders now — something like <em>Personal, Work, Job Search, Money, Health</em>. Move just ten stranded files into them. Ten is enough to start the habit; perfection is not required.</p>`
       },
       {
@@ -464,7 +480,7 @@ const COURSES = [
 <p><strong>1. One strong, unique password per account.</strong> Reused passwords mean one breached site unlocks your whole life. Since no human can memorize fifty unique passwords, use a <strong>password manager</strong> (your phone's built-in one is fine) to generate and remember them. You memorize one strong master password; it handles the rest. For that master: a phrase of four-plus random words — <em>correct-horse-battery-staple</em> style — is both stronger and easier to remember than <code>P@ssw0rd1</code>.</p>
 <p><strong>2. Two-factor authentication (2FA) on anything that matters.</strong> Email, banking, and socials first. 2FA means a stolen password still isn't enough — the thief would also need your phone. It's the single highest-value security setting that exists, and it takes two minutes per account.</p>
 <p>Email deserves special paranoia: it's the master key, because "reset password" links for everything else land there. Secure it first and best.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Right now: turn on 2FA for your primary email account (search the security settings for "two-factor" or "2-step"). That one action outweighs everything else in this lesson.</p>`
       },
       {
@@ -480,7 +496,7 @@ const COURSES = [
 </ul>
 <p>The universal defense is <strong>going in the front door</strong>: instead of clicking the link in the message, open the app or type the site address yourself and check your account there. If something's genuinely wrong, it'll be waiting for you inside.</p>
 <p>If you do get caught — it happens to sharp people every day — change that password immediately, enable 2FA, and if money's involved, contact your bank and report it at <em>reportfraud.ftc.gov</em>. Speed matters far more than embarrassment.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Open your spam or junk folder and autopsy one phishing email against the red-flag list. Practicing on defused examples trains your eye for live ones.</p>`
       },
       { title: 'Quiz: Digital Foundations', type: 'quiz', minutes: 8 }
@@ -514,7 +530,7 @@ const COURSES = [
 <li><strong>Freeze the header row</strong> (View → Freeze) so labels stay visible as you scroll.</li>
 </ul>
 <p>A personal budget is the perfect first project: real data you care about, small enough to manage, and every skill in this course applies to it.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Open a free Google Sheet and build the four-column header — Date, Item, Category, Amount. Enter your last ten purchases. This little table is your lab for the next two lessons.</p>`
       },
       {
@@ -530,7 +546,7 @@ const COURSES = [
 <li><code>=COUNT(D2:D11)</code> — how many numbers are in the range.</li>
 </ul>
 <p>Two quality-of-life tricks: click cells instead of typing addresses while building a formula, and drag the tiny square at a cell's corner (the fill handle) to copy a formula down a column — references shift automatically. Errors like <code>#DIV/0!</code> or <code>#REF!</code> aren't failures; they're the grid telling you exactly what to fix.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Under your Amount column, add a Total row with <code>=SUM(</code>your range<code>)</code> and an Average row with <code>=AVERAGE(...)</code>. Then change one purchase amount and watch both update. That auto-update is the whole reason spreadsheets exist.</p>`
       },
       {
@@ -541,7 +557,7 @@ const COURSES = [
 <p><strong>Sorting</strong> rearranges rows by a column — Amount high-to-low shows your biggest expenses instantly. One critical habit: select the <em>whole table</em> (or use Data → Sort range) so rows move together. Sorting a single column scrambles your data's meaning — and it's the classic beginner disaster.</p>
 <p><strong>Filtering</strong> hides rows without deleting them. Turn on the filter (Data → Create a filter), click a header's funnel icon, and show only Category = "Food." Now the spreadsheet answers "what did I spend on food?" — and your SUM of what's visible tells you the damage. Filters stack: Food, this month, over $20.</p>
 <p>When you're ready for one more level: <code>=SUMIF(C2:C50, "Food", D2:D50)</code> totals only the food rows with no filtering at all, and a Chart (Insert → Chart) of category totals turns your budget into a picture worth a thousand rows.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Sort your practice table by Amount, largest first. Then filter to one category and note the total. You just did data analysis — the same skill, at any scale, that businesses pay for.</p>`
       },
       { title: 'Quiz: Spreadsheet Basics', type: 'quiz', minutes: 8 }
@@ -570,7 +586,7 @@ const COURSES = [
 <p><strong>Genuinely great at:</strong> drafting and rewriting (emails, cover letters, summaries), explaining concepts at whatever level you ask for, brainstorming options, translating tone ("make this friendlier"), and acting as a patient tutor that never judges a basic question.</p>
 <p><strong>Structurally weak at:</strong> knowing whether what they said is <em>true</em>. A language model can generate confident, fluent, completely wrong statements — invented statistics, fake citations, wrong dates. This is called <strong>hallucination</strong>, and it's not a rare glitch; it's a built-in cost of how the technology works.</p>
 <p>The right mental model: a brilliant, endlessly willing intern with no accountability. Fantastic first drafts, real research help — but you are the editor, and your name goes on the final product.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Ask a free AI assistant to explain something you already know deeply — your job, your neighborhood, your hobby. Grade its answer. Feeling where it's smooth and where it's subtly off builds the calibration everything else depends on.</p>`
       },
       {
@@ -589,7 +605,7 @@ const COURSES = [
 <li><strong>Treat it as a conversation.</strong> The first answer is a first draft. "Make it shorter." "More formal." "Give me a version emphasizing leadership." Iteration is the skill.</li>
 <li><strong>Paste in your raw material.</strong> The AI writes a far better résumé bullet when you give it your messy notes about what you actually did than when it has to invent from nothing.</li>
 </ul>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Take a real task from your week and write a four-ingredient prompt for it. Then push back on the answer at least twice. Notice how much distance there is between reply one and reply three.</p>`
       },
       {
@@ -600,10 +616,364 @@ const COURSES = [
 <p><strong>Discipline one: verify before you rely.</strong> Match the checking to the stakes. A brainstorm needs no fact-check; a statistic going into a report needs a real source you found yourself; anything legal, medical, or financial needs a qualified human. Practical habits: ask the AI "what should I double-check in this answer?" (surprisingly effective), search for independent confirmation of specific claims, and treat any citation as unverified until you've opened it — models are notorious for inventing plausible-looking sources.</p>
 <p><strong>Discipline two: guard what you paste.</strong> Treat a chat window like a postcard, not a locked drawer. Never paste: passwords or codes, your (or anyone's) Social Security number or full financial details, other people's private information, or your employer's confidential data — customer lists, unreleased plans, internal documents. Workplaces increasingly have AI policies; pasting company data into a personal AI account has gotten real people fired. When in doubt, describe the situation generically ("an employee with a scheduling conflict") instead of pasting the real thing.</p>
 <p>Used with these two disciplines, AI tools are a legitimate career accelerator — early studies keep finding the biggest productivity gains go to people newer to a skill, because the AI fills the experience gap while you build the judgment. Judgment is the part that stays yours.</p>
-<h4>Try this</h4>
+<h4>Apply this</h4>
 <p>Ask an AI assistant a factual question in an area you care about, then independently verify its three main claims. Time how long verification takes — that's the real cost of using AI responsibly, and it's usually smaller than you fear.</p>`
       },
       { title: 'Quiz: Working with AI', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  /* ================= PROFESSIONAL DEVELOPMENT ================= */
+  {
+    id: 'analytical-thinking',
+    title: 'Analytical Thinking & Problem Solving',
+    pillar: 'professional',
+    level: 'Core',
+    minutes: 45,
+    desc: 'The skill employers rank first worldwide — roughly seven in ten companies call it essential. Break down messy problems, reason with evidence, and make decisions you can defend.',
+    objectives: [
+      'Deconstruct vague problems into specific, solvable parts',
+      'Evaluate evidence and avoid the most common reasoning traps',
+      'Make and communicate structured, defensible decisions'
+    ],
+    skills: ['Problem solving', 'Critical thinking', 'Decision making'],
+    lessons: [
+      {
+        title: 'Deconstructing Problems',
+        minutes: 14,
+        content: `
+<p>The World Economic Forum's Future of Jobs research has ranked <strong>analytical thinking</strong> as the single most important core skill for several years running — roughly seven in ten employers consider it essential. The good news: it is a procedure, not a talent, and the procedure starts with how you define the problem.</p>
+<p>Weak problem statements describe feelings: "Sales are bad." Strong ones are specific, measurable, and bounded: "New-customer sales dropped 20% in the last two months, while repeat sales held steady." The second version already points toward causes worth investigating — something changed recently, and it affects new customers specifically.</p>
+<p>Two tools do most of the deconstruction work:</p>
+<ul>
+<li><strong>Symptom vs. root cause.</strong> A symptom is what you observe; a root cause is what produces it. Treating symptoms feels productive and changes nothing. The <strong>Five Whys</strong> technique digs downward: ask "why is that happening?" repeatedly — usually three to five layers — until you hit something you can actually fix. "Deliveries are late" → why → "orders sit overnight" → why → "the cutoff time doesn't match the courier pickup" — now you have a fixable cause, not a complaint.</li>
+<li><strong>Splitting the problem.</strong> Break a big question into parts that can each be checked separately: "Where is revenue dropping — which product, which customer type, which channel?" Each split shrinks the search space. Professionals look slow at the start of a problem and fast at the end; amateurs are the reverse.</li>
+</ul>
+<h4>Apply this</h4>
+<p>Take one frustration from your work or life. Rewrite it as a specific, measurable problem statement, then run Five Whys on paper. Notice how different the fix looks at layer four versus layer one.</p>`
+      },
+      {
+        title: 'Reasoning with Evidence',
+        minutes: 14,
+        content: `
+<p>Analytical thinkers hold opinions like scientists hold hypotheses: firmly enough to act, loosely enough to update. That discipline comes down to a few habits when facing any claim — including your own.</p>
+<ul>
+<li><strong>Correlation is not causation.</strong> Two things moving together doesn't mean one causes the other. Ice cream sales and drownings rise together every summer — the cause of both is warm weather. Before acting on "A causes B," ask what third factor could produce both, and what would happen to B if you changed A directly.</li>
+<li><strong>Beware small samples and vivid stories.</strong> One angry customer email feels weightier than a satisfaction report covering five hundred — but it isn't. Anecdotes are excellent for generating questions and terrible for answering them. Ask: how many cases is this conclusion standing on?</li>
+<li><strong>Check the base rate.</strong> Before treating an event as meaningful, ask how often it happens normally. Two resignations in a month is alarming at a five-person company and routine at a five-hundred-person one.</li>
+<li><strong>Ask the disconfirming question.</strong> The single strongest analytical habit: "What evidence would change my mind?" If the answer is "nothing," you're not analyzing — you're defending. Actively look for the strongest version of the opposing case before deciding.</li>
+</ul>
+<p>None of this requires statistics training. It requires pausing at the moment of certainty — which is exactly when errors get expensive.</p>
+<h4>Apply this</h4>
+<p>Find one confident claim in your feed or workplace this week. Run it through all four tests: causation, sample size, base rate, disconfirming evidence. Write down which test it fails, if any.</p>`
+      },
+      {
+        title: 'Structured Decisions',
+        minutes: 12,
+        content: `
+<p>Analysis earns its keep at the moment of decision. Two frameworks cover most professional situations.</p>
+<p><strong>First, size the decision before you size the analysis.</strong> Decisions come in two types: <em>reversible</em> (you can undo it cheaply — a trial run, a draft, a small order) and <em>hard-to-reverse</em> (a signed lease, a public commitment, a hire). Reversible decisions should be made quickly with modest analysis — speed is worth more than precision, because the correction is cheap. Hard-to-reverse decisions deserve the full treatment. Most people invert this: agonizing over reversible choices and rushing irreversible ones.</p>
+<p><strong>Second, for decisions that matter, use an options-and-criteria table.</strong> List your realistic options as rows. List what actually matters — cost, time, risk, upside — as columns. Score each cell honestly. The table rarely makes the decision for you, but it does three things a gut call can't: it exposes which criterion is really driving you, it makes the tradeoffs visible, and it gives you something concrete to show anyone who asks "why did you choose this?"</p>
+<p>When you present a decision, use this order: <em>context in one sentence → the options you considered → your recommendation → the main risk and how you'll watch for it</em>. Leading with the recommendation's reasoning, not its conclusion, is what separates "trust me" from "here's my thinking" — and the second one is what earns bigger decisions.</p>
+<h4>Apply this</h4>
+<p>Take one real decision you're facing. First classify it: reversible or not? If reversible, decide today. If not, build the options-and-criteria table and notice which column secretly carries the most weight.</p>`
+      },
+      { title: 'Quiz: Analytical Thinking', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  {
+    id: 'adaptability-resilience',
+    title: 'Adaptability & Resilience',
+    pillar: 'professional',
+    level: 'Core',
+    minutes: 40,
+    desc: 'Global employers rank resilience and agility among their top two skills, and expect roughly four in ten core job skills to change by 2030. The durable advantage is learning to change with them.',
+    objectives: [
+      'Understand why adaptability outperforms any single technical skill over a career',
+      'Learn new skills quickly using a deliberate, repeatable method',
+      'Respond to setbacks and career shocks with a prepared protocol'
+    ],
+    skills: ['Learning agility', 'Resilience', 'Career management'],
+    lessons: [
+      {
+        title: 'The Case for Adaptability',
+        minutes: 12,
+        content: `
+<p>The World Economic Forum estimates that roughly <strong>39% of workers' core skills will change by 2030</strong>, and employers consistently rank resilience, flexibility, and agility just behind analytical thinking on their most-wanted lists. LinkedIn's workplace research reached the same conclusion from the hiring side, naming adaptability the defining skill of the current economy.</p>
+<p>The reason is structural, not fashionable. Technology now changes faster than job descriptions do. Any specific tool you master will be updated, replaced, or automated on a timeline you don't control. What holds its value is the <em>meta-skill</em>: the demonstrated ability to pick up whatever comes next. A person who has learned five unrelated skills has something more valuable than any of the five — evidence they can learn a sixth.</p>
+<p>This reframes career security. Security is not a job title or an employer; those can vanish in a quarter. Security is a <strong>portfolio of transferable skills plus the proven capacity to add more</strong>. That's an asset no layoff, industry shift, or economic downturn can repossess — and it's precisely what lets people move between employment, self-employment, and back as conditions change.</p>
+<p>The practical starting point is an honest audit: which of your current skills are rising in demand, which are flat, and which are being automated out from under you?</p>
+<h4>Apply this</h4>
+<p>List the five skills your income currently depends on. Next to each, write rising, stable, or declining — be honest, and search job postings if unsure. The declining ones tell you where to aim the learning method in the next lesson.</p>`
+      },
+      {
+        title: 'Learning Agility: Acquiring Skills Fast',
+        minutes: 14,
+        content: `
+<p>Fast learners aren't smarter; they follow a tighter loop. The method below compresses what research on skill acquisition consistently shows.</p>
+<ol>
+<li><strong>Define a performance target, not a topic.</strong> "Learn spreadsheets" is a wish. "Build a working budget tracker with formulas by the 30th" is a target — you'll know whether you hit it.</li>
+<li><strong>Find the smallest real project.</strong> Courses and videos are supporting material, not the work. Skills form when you attempt the real thing at a small scale: an actual budget, a real cover letter, a genuine client task done cheap. Projects force the exact gaps tutorials let you skip.</li>
+<li><strong>Practice in short, frequent sessions.</strong> Twenty focused minutes daily reliably beats a four-hour weekend binge, because memory consolidates between sessions. Consistency is the mechanism, not the decoration.</li>
+<li><strong>Close the feedback loop fast.</strong> Every attempt needs a verdict — the formula worked or errored, the draft got comments, the practice interview got a critique. Practice without feedback just rehearses your mistakes. AI assistants are genuinely useful here as an always-available first reviewer.</li>
+<li><strong>Expect the dip.</strong> Around the point where enthusiasm fades and competence hasn't arrived yet, most people quit. Knowing the dip is a normal, temporary phase of every skill curve is — by itself — a competitive advantage.</li>
+</ol>
+<h4>Apply this</h4>
+<p>Pick one declining-skill replacement from your last exercise. Write a two-week plan on one line: the performance target, the small real project, and your daily 20-minute slot. Start tomorrow, not Monday.</p>`
+      },
+      {
+        title: 'Resilience Under Pressure',
+        minutes: 12,
+        content: `
+<p>Adaptability handles gradual change; resilience handles sudden impact — the layoff, the lost client, the failed launch. Resilient people aren't unaffected. They recover faster because they respond with a protocol instead of improvising while flooded.</p>
+<p><strong>The sorting step.</strong> When a shock hits, divide everything on your mind into three lists: what you <em>control</em> (your actions, schedule, spending, applications), what you <em>influence</em> (other people's decisions you can affect but not dictate), and what you must <em>accept</em> (the market, the past, other people's choices). Energy spent on the third list is pure loss; the entire return on effort lives in the first list. This one exercise reliably converts panic into a task list.</p>
+<p><strong>The stabilizers.</strong> Under stress, the fundamentals stop being optional: sleep, movement, and at least one honest conversation with someone you trust. Isolation is the accelerant of every career setback — people who tell their network they're looking find work dramatically faster than people who hide.</p>
+<p><strong>The prepared playbook.</strong> Resilience is mostly built <em>before</em> the shock. A one-page "if it happens" plan — current résumé, a list of twenty contacts, one month's minimal budget number, the first five actions of a job or client search — turns a catastrophe into a bad week with a checklist. You'll likely never use it, and writing it measurably reduces the fear of needing it.</p>
+<h4>Apply this</h4>
+<p>Write your one-page shock playbook this week: the budget floor number, the twenty contacts, the first five moves. File it and forget it — the confidence stays behind.</p>`
+      },
+      { title: 'Quiz: Adaptability & Resilience', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  {
+    id: 'collaboration-leadership',
+    title: 'Leadership & Team Collaboration',
+    pillar: 'professional',
+    level: 'Core',
+    minutes: 45,
+    desc: 'Leadership and social influence sits in employers’ global top five. Learn to lead without a title, make teams function, and manage upward with professionalism.',
+    objectives: [
+      'Build influence through ownership and reliability rather than authority',
+      'Apply the mechanics that make teams effective, including structured feedback',
+      'Manage upward and across with clear expectations and no surprises'
+    ],
+    skills: ['Leadership', 'Teamwork', 'Feedback'],
+    lessons: [
+      {
+        title: 'Leading Without a Title',
+        minutes: 14,
+        content: `
+<p>Employers rank <strong>leadership and social influence</strong> among the five most important skills in the global workforce — and the demand is not for titles, it's for behavior. Leadership behavior is observable long before any promotion, and it's what promotions respond to.</p>
+<p>The behaviors that build influence from any seat:</p>
+<ul>
+<li><strong>Take ownership of outcomes, not just tasks.</strong> "I did my part" is task thinking. "The handoff failed, so I flagged it and proposed a fix" is ownership. People who think in outcomes get handed larger outcomes.</li>
+<li><strong>Bring proposals, not just problems.</strong> Anyone can report that something is broken. "This is broken — here are two options, and I'd recommend the first because..." is the sentence that changes how a room treats you. It works even when your proposal isn't chosen, because it demonstrates you think at the next level.</li>
+<li><strong>Be boringly reliable.</strong> Influence compounds from small kept promises: on time, as agreed, or an early heads-up when it can't be. One quiet year of reliability beats one loud quarter of brilliance.</li>
+<li><strong>Distribute credit precisely.</strong> "Maria's analysis caught this" costs you nothing and buys enormous goodwill. Vague or hoarded credit is remembered just as precisely.</li>
+</ul>
+<p>None of these require permission — which is exactly why they signal leadership rather than compliance.</p>
+<h4>Apply this</h4>
+<p>In your next meeting or group setting, replace one problem-report with a problem-plus-proposal. Note the difference in how the conversation treats you afterward.</p>`
+      },
+      {
+        title: 'The Mechanics of Effective Teams',
+        minutes: 14,
+        content: `
+<p>Google's multi-year study of its own teams (Project Aristotle) found the strongest predictor of team performance wasn't talent, seniority, or workload — it was <strong>psychological safety</strong>: whether members could ask questions, admit mistakes, and raise concerns without fear of embarrassment or punishment.</p>
+<p>Psychological safety is frequently misunderstood. It is <em>not</em> comfort, lowered standards, or the absence of disagreement — high-performing safe teams argue constantly. It means the argument targets ideas, not people, and that "I don't know" or "I was wrong" carries no penalty. You contribute to it from any seat: ask the question everyone is avoiding, own your errors quickly and plainly, and respond to others' mistakes with "what do we fix?" instead of "who do we blame?"</p>
+<p>The second mechanic is <strong>structured feedback</strong>. Most feedback fails because it arrives as judgment ("you're careless") instead of information. The SBI pattern fixes this:</p>
+<ul>
+<li><strong>Situation:</strong> "In yesterday's client call…"</li>
+<li><strong>Behavior:</strong> "…the pricing slide had last quarter's numbers…"</li>
+<li><strong>Impact:</strong> "…which meant we had to walk it back by email, and the client noticed."</li>
+</ul>
+<p>Facts, behavior, consequence — no motives guessed, no character judged. The same structure works for positive feedback, and delivering precise positive feedback is one of the most underused influence tools in any workplace.</p>
+<h4>Apply this</h4>
+<p>Deliver one piece of SBI feedback this week — make it a positive one. Precision in praise builds the trust that makes corrective feedback survivable later.</p>`
+      },
+      {
+        title: 'Managing Up and Across',
+        minutes: 12,
+        content: `
+<p>Your manager and your peers experience exactly one version of you: the one visible in communication. Managing that channel deliberately is not politics — it's professionalism.</p>
+<p><strong>Managing up rests on the no-surprises rule.</strong> Managers can absorb bad news; what they can't absorb is bad news they learned late. The tool is the proactive status update — three lines, unprompted, at a regular rhythm: what's done, what's next, what's blocked or at risk. People who send it get interrupted less, trusted more, and remembered at promotion time as "on top of things." It takes four minutes a week.</p>
+<p><strong>Negotiate priorities with arithmetic, not apology.</strong> When new work lands on a full plate, the professional response is not silent overload or flat refusal — it's the visible tradeoff: "I can take this. To do it well, X slips to Thursday — is that the right trade?" You've said yes to the person while making the cost land where it belongs: on the priority list, not on your unpaid evenings.</p>
+<p><strong>Across teams, assume friction is structural before assuming it's personal.</strong> The other department isn't slow because they're lazy; they have different incentives and their own overloaded queue. The move that unlocks cross-team work is understanding what <em>they're</em> measured on and framing your request in those terms. Allies are built in the asking, not the escalation.</p>
+<h4>Apply this</h4>
+<p>Send your first three-line status update this week without being asked: done, next, at-risk. Do it weekly for a month and watch what happens to the trust level.</p>`
+      },
+      { title: 'Quiz: Leadership & Collaboration', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  /* ================= ENTREPRENEURSHIP & INDEPENDENT WORK ================= */
+  {
+    id: 'service-business',
+    title: 'Turning Skills into a Service Business',
+    pillar: 'business',
+    level: 'Core',
+    minutes: 45,
+    desc: 'Independent work now involves more than a third of the U.S. workforce. A practical path from "skills I have" to "services people pay for" — whatever the economy is doing.',
+    objectives: [
+      'Inventory your transferable skills and identify which ones people pay for',
+      'Design a specific, scoped, priced service offer',
+      'Land your first paying clients without an advertising budget'
+    ],
+    skills: ['Service design', 'Pricing', 'Client acquisition'],
+    lessons: [
+      {
+        title: 'The Skills Inventory',
+        minutes: 14,
+        content: `
+<p>Workforce studies consistently estimate that over a third of U.S. workers now do some form of independent or freelance work — not because everyone became an entrepreneur, but because skills themselves became sellable in smaller units. The foundational insight: <strong>you don't need a business idea; you need an honest inventory of what you can already do that someone else can't or won't do themselves.</strong></p>
+<p>Run the inventory in three columns:</p>
+<ul>
+<li><strong>Column 1 — What can I do?</strong> Include the skills you dismiss as ordinary: organizing chaos, writing clearly, fixing things, calming upset people, keeping books straight, setting up phones for relatives. The skills you find easy are the ones you undervalue most — and "easy for you, painful for them" is the exact definition of a market.</li>
+<li><strong>Column 2 — Who pays for this?</strong> Every skill maps to buyers. Organized → small businesses drowning in admin. Good with spreadsheets → owners who don't know where their money goes. Patient teacher → families needing tutoring, seniors needing tech help. Reliable hands → property managers, event planners, movers.</li>
+<li><strong>Column 3 — What's my proof?</strong> Not credentials — evidence. "Ran the schedule for a 40-person kitchen" is proof of operational skill. "Family calls me first when tech breaks" is proof of support skill. Proof is what converts "trust me" into "look."</li>
+</ul>
+<p>Your first service lives where the three columns intersect with one more filter: something you can tolerate doing repeatedly. Passion is optional; tolerance is mandatory.</p>
+<h4>Apply this</h4>
+<p>Build the three-column inventory now — minimum eight rows. Circle the two rows with the strongest combination of demand and proof. Those two go into the next lesson.</p>`
+      },
+      {
+        title: 'Designing a Sellable Offer',
+        minutes: 14,
+        content: `
+<p>The most common independent-work mistake is selling a vague capability: "I do bookkeeping" or "I can help with marketing." Buyers don't purchase capabilities — they purchase <strong>defined outcomes at known prices</strong>. That definition is called an offer, and it has four parts:</p>
+<ul>
+<li><strong>Who it's for.</strong> Narrow wins. "Bookkeeping for mobile food vendors" beats "bookkeeping" — the narrower audience hears you speaking directly to them, faces less competition, and refers you to identical businesses. You can always widen later; you can't be remembered as a generalist.</li>
+<li><strong>The outcome.</strong> Name what they get, not what you do: "your last three months of transactions categorized and a one-page monthly summary," not "QuickBooks assistance."</li>
+<li><strong>The scope.</strong> Exactly what's included, what isn't, and how long it takes. Scope is what protects both sides — and unscoped work is how service providers end up earning less than minimum wage on "quick" projects.</li>
+<li><strong>The price.</strong> For defined scopes, use <strong>flat pricing</strong>, not hourly. Hourly punishes you for being fast, caps your income at your calendar, and makes buyers anxious about the meter. A flat "starter offer" — small, low-risk, quick to deliver — is the classic entry: it gets you the yes, the result, and the testimonial that sells the next one.</li>
+</ul>
+<p>Compress the whole thing into one sentence: <em>"I help [who] get [outcome] through [service], starting at [price]."</em> If you can't say it in one sentence, the offer isn't finished.</p>
+<h4>Apply this</h4>
+<p>Write the one-sentence offer for your strongest inventory row. Then write the starter version: smallest useful scope, one-week delivery, a price you can say out loud without flinching.</p>`
+      },
+      {
+        title: 'Landing the First Clients',
+        minutes: 12,
+        content: `
+<p>The first three clients never come from advertising. They come from the network you already have, approached with a specific offer instead of a vague announcement.</p>
+<p><strong>Build the portfolio of one.</strong> Before anyone pays you, do the work once, visibly: your own books kept immaculately, a sample report, a before-and-after of the thing you fix. One concrete artifact outperforms any description of your potential.</p>
+<p><strong>Use the discounted-first-clients play — correctly.</strong> Offer your first one or two clients a genuine discount in exchange for two named deliverables: honest feedback and, if satisfied, a testimonial and referral. This is not working for free, and it isn't forever — it's buying proof at a fair price. Free work with no defined endpoint teaches clients your work has no value; a discount with a stated reason teaches them the full price is coming.</p>
+<p><strong>Work a warm list of twenty.</strong> List twenty people who know you: former colleagues, neighbors, community members. Send a short, specific message — not "I'm starting a business!" but "I've started helping [who] with [outcome]. If you know anyone dealing with [problem], I'd appreciate the introduction." Specific requests get forwarded; vague announcements get liked.</p>
+<p><strong>Follow up twice.</strong> Most yeses arrive on the second contact. Silence usually means busy, not no — one polite follow-up a week later is professional persistence, and it's where most beginners quit right before the first client says yes.</p>
+<h4>Apply this</h4>
+<p>Write your twenty-person warm list today and send the first five messages. Use the specific format above. Track responses — the pattern will teach you more than any course can.</p>`
+      },
+      { title: 'Quiz: Service Business', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  {
+    id: 'market-yourself',
+    title: 'Marketing & Client Development',
+    pillar: 'business',
+    level: 'Core',
+    minutes: 40,
+    desc: 'Positioning, the few channels that actually work at small scale, and sales conversations that feel like problem-solving instead of pressure.',
+    objectives: [
+      'Write a clear positioning message and back it with proof',
+      'Choose one acquisition channel and work it consistently',
+      'Run discovery-first sales conversations and handle price objections'
+    ],
+    skills: ['Positioning', 'Client development', 'Consultative selling'],
+    lessons: [
+      {
+        title: 'Positioning: Findable and Memorable',
+        minutes: 12,
+        content: `
+<p>Marketing for an independent professional is not advertising — it's <strong>being easy to describe</strong>. Every client you'll ever get arrives through a sentence someone says about you: "You should talk to her, she does exactly that." Positioning is the craft of making that sentence effortless.</p>
+<p>The working formula: <strong>who you serve + the problem you remove + the outcome you deliver</strong>. "I help small landlords keep their books clean and their taxes ready" is positioning. "I'm exploring freelance accounting opportunities" is fog. People cannot refer fog.</p>
+<p>Then make every surface repeat the same sentence. Your one-line intro, your online profiles, your email signature, how you answer "so what do you do?" — identical story everywhere. This consistency is the entire mechanism of being remembered; variety is what kills word of mouth.</p>
+<p>Finally, attach <strong>proof</strong>. Three forms work at any scale:</p>
+<ul>
+<li><strong>Testimonials</strong> — two sentences from a real client, with a name, beats paragraphs of self-description.</li>
+<li><strong>Before-and-after</strong> — the shoebox of receipts vs. the clean monthly report; the cluttered garage vs. the organized one. Visible transformation sells silently.</li>
+<li><strong>Numbers</strong> — "12 clients," "3 years," "same-week turnaround." Specificity reads as truth.</li>
+</ul>
+<h4>Apply this</h4>
+<p>Write your positioning sentence using the formula, then update your most-seen surface (likely your LinkedIn headline or how you introduce yourself) to match it exactly. One sentence, everywhere, until people can repeat it back to you.</p>`
+      },
+      {
+        title: 'Channels That Work at Small Scale',
+        minutes: 14,
+        content: `
+<p>Big companies spread budget across ten channels. Independent professionals win by the opposite move: <strong>one channel, worked consistently, until it produces</strong>. Scattered effort across five platforms produces five invisible presences.</p>
+<p>The channels that reliably work with no budget, ranked by typical return:</p>
+<ol>
+<li><strong>Referrals — engineered, not hoped for.</strong> Word of mouth is the top source of service clients everywhere, but it responds to management. Every satisfied client gets the ask, phrased for forwarding: "If you know another [landlord/parent/shop owner] dealing with [problem], I'd be grateful for the introduction." Then thank every referrer visibly, whether or not the lead converts — thanked referrers refer again.</li>
+<li><strong>Local and community networks.</strong> Chambers of commerce, neighborhood groups, faith communities, the library bulletin board (physical and digital). For local services these outperform every algorithm, because trust is pre-installed.</li>
+<li><strong>Adjacent-provider partnerships.</strong> Find the people who serve your customer before or after you do. A bookkeeper's best referral sources are tax preparers who don't do books. A tutor's is the testing center. One good adjacent partner can quietly fill a calendar.</li>
+<li><strong>One platform, done properly.</strong> If your buyers are businesses, LinkedIn; if local consumers, a complete Google Business profile with reviews. Post or update on a fixed weekly rhythm. Consistency beats cleverness — the goal is to exist reliably where your buyer already looks.</li>
+</ol>
+<h4>Apply this</h4>
+<p>Choose exactly one channel from the list — the one where your buyers actually are. Define its weekly action (two referral asks, one community appearance, one post) and put it on your calendar as a recurring block. Review results in 30 days before even considering a second channel.</p>`
+      },
+      {
+        title: 'Sales Conversations, Honestly',
+        minutes: 12,
+        content: `
+<p>Most new independents dread selling because they picture pressure. Professional selling is the opposite discipline: <strong>diagnosis before prescription</strong>. The person who asks the best questions — not the one with the smoothest pitch — wins the client, because buyers hire the person who understood the problem.</p>
+<p><strong>Open with discovery, not description.</strong> Prepare five questions and let them run the first two-thirds of the conversation: What's the situation now? What have you already tried? What happens if this stays unsolved? When do you need it handled? What would a great outcome look like? By the end, half the time the client has talked themselves into hiring you — and the other half, you've learned the fit is wrong <em>before</em> wasting a month proving it.</p>
+<p><strong>Propose in writing, briefly.</strong> One page: the problem as they described it (their words — this matters), the scope, the timeline, the flat price, and the single next step. Speed counts: a same-day one-pager beats a two-week glossy document every time.</p>
+<p><strong>Handle "it's too expensive" by resizing scope, never rate.</strong> "I understand — we could start with just the last quarter instead of the full year, which brings it to X." Cutting your rate teaches clients the price was padded; cutting scope respects both the budget and your value. And when a project is truly mispriced for the buyer, a graceful referral elsewhere earns goodwill that routinely returns as future work.</p>
+<p><strong>Follow up twice, then rest.</strong> Two polite follow-ups a week apart. Most deals close on contact two or three; pestering past that spends reputation you'll want later.</p>
+<h4>Apply this</h4>
+<p>Script your five discovery questions for your specific offer and rehearse them aloud once. Then build your one-page proposal template so it's ready the moment a conversation goes well.</p>`
+      },
+      { title: 'Quiz: Marketing & Clients', type: 'quiz', minutes: 8 }
+    ]
+  },
+
+  {
+    id: 'money-basics',
+    title: 'Money Fundamentals for Independent Work',
+    pillar: 'business',
+    level: 'Core',
+    minutes: 45,
+    desc: 'The financial discipline that keeps independent work sustainable: separated accounts, professional invoicing, tax readiness, and a cushion that buys you calm.',
+    objectives: [
+      'Separate business and personal finances with simple bookkeeping',
+      'Invoice professionally, take deposits, and control scope creep',
+      'Prepare for taxes and build a financial cushion — knowing when to consult professionals'
+    ],
+    skills: ['Bookkeeping basics', 'Invoicing', 'Financial planning'],
+    lessons: [
+      {
+        title: 'Separate the Money',
+        minutes: 14,
+        content: `
+<p>The single highest-leverage financial habit for independent work costs nothing and takes an afternoon: <strong>separate business money from personal money completely</strong>. One dedicated account (a second free checking account is fine to start) that receives every client payment and pays every business expense.</p>
+<p>Why this matters more than it sounds:</p>
+<ul>
+<li><strong>You can finally see the business.</strong> Mixed accounts hide whether you're actually profitable. Separated, one glance answers it: money in, money out, what's left.</li>
+<li><strong>Taxes become an export instead of an archaeology dig.</strong> Every transaction in one place turns tax season from a shoebox nightmare into a list.</li>
+<li><strong>It changes your own psychology.</strong> A business with its own account gets treated like a business — priced like one, defended like one.</li>
+</ul>
+<p>Pair the account with <strong>minimum viable bookkeeping</strong>: a simple ledger — a spreadsheet is genuinely enough at the start — with date, client/vendor, description, category, and amount. (The Spreadsheet Basics course in the Technical pillar builds exactly this skill.) Update it on a fixed 20-minute weekly appointment; weekly entries take minutes, quarterly archaeology takes weekends. Keep every receipt in one folder, digital or physical — many business expenses reduce your taxable income, but only if you can prove them.</p>
+<p>Monthly, answer three questions from the ledger: What came in? What went out? Which service or client produced the most profit? That third answer quietly steers the whole business.</p>
+<h4>Apply this</h4>
+<p>Open or designate the separate account this week, and build the five-column ledger with your last month of activity. Book the recurring 20-minute weekly slot now — the habit is the tool.</p>`
+      },
+      {
+        title: 'Invoicing, Deposits, and Scope',
+        minutes: 14,
+        content: `
+<p>Getting paid fully and on time is not luck — it's paperwork discipline. Three documents do the protecting.</p>
+<p><strong>The professional invoice.</strong> Every invoice needs: a unique number (start at 1001; nobody needs to know you're new), issue date, your details, the client's details, an itemized description matching the agreed scope, the total, payment methods, and — critically — <strong>payment terms with a real due date</strong>. "Due within 15 days" (net-15) is a reasonable default for small services. Send the invoice the day the work completes; every day of delay signals the money isn't urgent to you either.</p>
+<p><strong>The deposit.</strong> For new clients or multi-week projects, take 25–50% up front before work begins. A deposit isn't distrust — it's mutual commitment: the client is real, and your calendar is genuinely reserved. Established professionals in every field do this; adopting it early marks you as one.</p>
+<p><strong>The change order.</strong> Scope creep — "while you're at it, could you also…" — is the silent killer of service income. The fix is a friendly, firm sentence: <em>"Happy to add that — it's outside our original scope, so I'll send a quick quote for the addition."</em> Clients respect it, and the ones who don't were planning to consume you regardless. Better to learn that on invoice two than invoice ten.</p>
+<p>When payment goes late: a polite reminder at day 3, a direct one at day 14 with a copy of the invoice, and for new clients going forward, deposits get larger. Calm persistence collects; awkward silence doesn't.</p>
+<h4>Apply this</h4>
+<p>Build your invoice template today with every element above, and write your change-order sentence word-for-word so it's ready before the first "while you're at it" arrives.</p>`
+      },
+      {
+        title: 'Taxes and the Cushion',
+        minutes: 12,
+        content: `
+<p>Independent income arrives untaxed, and the single most common first-year disaster is spending money that was never yours. Two disciplines prevent it.</p>
+<p><strong>The automatic set-aside.</strong> Move a fixed percentage of every single payment into a separate savings account the day it arrives — commonly cited guidance for U.S. self-employment falls in the 25–30% range, since independent workers pay both income tax and self-employment tax, and may owe <strong>quarterly estimated payments</strong> rather than one annual bill. The exact right percentage depends on your income, state, and situation — <em>this is a "consult a qualified tax professional" item, and one meeting with a tax preparer or CPA in your first earning year is among the best money a new independent spends.</em> What isn't negotiable is the mechanism: automatic, immediate, every payment, no exceptions. If the set-aside proves generous, you get a refund from yourself.</p>
+<p><strong>The cushion.</strong> Independent income is lumpy — strong months and silent ones. The difference between professionals who survive the silent months and those who panic-discount their way through them is a buffer of one to three months of minimal expenses, built by skimming something from every strong month. The cushion isn't just safety; it's <strong>negotiating power</strong> — the financial ability to say no to bad clients and bad prices.</p>
+<p>As income grows, two more professional-consult questions arise: whether registering a formal business entity (such as an LLC) makes sense for your liability and tax situation, and whether you need business insurance for your type of work. Both are jurisdiction-specific — flag them for a professional rather than guessing from internet forums.</p>
+<h4>Apply this</h4>
+<p>Set up the second savings account and pick your set-aside percentage this week. Then write down the two questions you'd bring to a tax professional — and price what one consultation costs in your area. It's less than the penalty for guessing wrong.</p>`
+      },
+      { title: 'Quiz: Money Fundamentals', type: 'quiz', minutes: 8 }
     ]
   }
 ];
@@ -935,6 +1305,222 @@ const QUIZ_BANK = {
       answer: 3,
       explain: 'Treat the chat window like a postcard. Real secrets, credentials, and other people’s private data stay out; generic descriptions get you the same help without the risk.'
     }
+  ],
+
+  'analytical-thinking': [
+    {
+      q: '"Deliveries keep going out late" — after asking "why" three times, you learn the order cutoff time doesn’t match the courier’s pickup schedule. What have you found?',
+      options: [
+        'A symptom that needs escalating to management',
+        'A root cause you can actually fix — the point of the Five Whys',
+        'Proof that the courier is the problem',
+        'A reason to add more delivery staff'
+      ],
+      answer: 1,
+      explain: 'Late deliveries were the symptom. Asking "why" repeatedly surfaced a fixable mechanism — the mismatch between cutoff and pickup — which is where effective action lives.'
+    },
+    {
+      q: 'A report shows employees who attend optional trainings get promoted more often, so a colleague concludes trainings cause promotions. What’s the strongest analytical objection?',
+      options: [
+        'The trainings are probably low quality',
+        'Promotions can’t be measured reliably',
+        'A third factor — like ambition or engagement — could drive both attendance and promotion; correlation alone can’t establish cause',
+        'The sample is too recent to matter'
+      ],
+      answer: 2,
+      explain: 'Two things moving together doesn’t establish that one causes the other. The people who choose optional training may differ in ways that independently drive promotion.'
+    },
+    {
+      q: 'Which decision most deserves the full options-and-criteria analysis before acting?',
+      options: [
+        'Trying a new format for the weekly status email',
+        'Testing a different work schedule for two weeks',
+        'Signing a 24-month office lease',
+        'Reordering the agenda for tomorrow’s meeting'
+      ],
+      answer: 2,
+      explain: 'The lease is expensive to reverse; the others are cheap experiments. Match analysis depth to reversibility — decide reversible things quickly, and give irreversible ones the full treatment.'
+    }
+  ],
+
+  'adaptability-resilience': [
+    {
+      q: 'Why does the course argue a "portfolio of transferable skills" beats any single job title for career security?',
+      options: [
+        'Titles are usually inflated anyway',
+        'Employers no longer read job titles',
+        'Roughly 39% of core job skills are expected to change by 2030 — titles and tools expire, but the demonstrated capacity to learn transfers to whatever comes next',
+        'Portfolios look better on a résumé than titles'
+      ],
+      answer: 2,
+      explain: 'The WEF projects large-scale skill turnover by 2030. What survives that churn is the meta-skill: proven ability to acquire what’s next — an asset no layoff can repossess.'
+    },
+    {
+      q: 'Per the learning-agility method, which plan is most likely to build a new skill fastest?',
+      options: [
+        'Watch a complete 12-hour video course first, then practice',
+        'Set a concrete performance target, build a small real project, practice 20 minutes daily, and get feedback on every attempt',
+        'Practice for four hours every Saturday until proficient',
+        'Read three books on the topic before attempting anything'
+      ],
+      answer: 1,
+      explain: 'Target + small real project + short frequent sessions + fast feedback is the loop. Passive consumption and infrequent binges are the two classic ways learning stalls.'
+    },
+    {
+      q: 'You just lost your biggest client. According to the resilience protocol, what’s the first move?',
+      options: [
+        'Immediately discount your prices to attract replacements',
+        'Sort everything on your mind into control / influence / accept — then act only on the control list',
+        'Take a month off to recover before deciding anything',
+        'Post publicly about the client’s unfairness'
+      ],
+      answer: 1,
+      explain: 'The sorting step converts panic into a task list. Energy spent on what you can’t control is pure loss; the entire return lives in the actions you own.'
+    }
+  ],
+
+  'collaboration-leadership': [
+    {
+      q: 'Which behavior best demonstrates "leading without a title"?',
+      options: [
+        'Reporting that the onboarding process is broken',
+        'Waiting for the manager to notice the onboarding problem',
+        'Describing the onboarding problem, proposing two fixes, and recommending one with reasoning',
+        'Fixing the onboarding process quietly without telling anyone'
+      ],
+      answer: 2,
+      explain: 'Proposals, not just problems. It signals next-level thinking even when your option isn’t chosen — and silent fixes help once, while visible reasoning builds influence.'
+    },
+    {
+      q: 'What did Google’s Project Aristotle identify as the strongest predictor of team performance?',
+      options: [
+        'The average seniority of team members',
+        'Psychological safety — members can question, admit error, and disagree without fear of punishment',
+        'Total team headcount',
+        'How often the team socializes outside work'
+      ],
+      answer: 1,
+      explain: 'Not talent or tenure — safety. And it isn’t comfort: safe teams argue constantly, but about ideas rather than people, with no penalty for "I was wrong."'
+    },
+    {
+      q: 'Your plate is full and your manager adds an urgent request. The professional response is:',
+      options: [
+        '"I can’t — I’m completely swamped."',
+        'Accept silently and work the weekend',
+        '"I can take this. To do it well, the report slips to Thursday — is that the right trade?"',
+        'Accept, then quietly deliver everything late'
+      ],
+      answer: 2,
+      explain: 'The visible tradeoff says yes to the person while placing the cost on the priority list where it belongs — instead of on your unpaid evenings or your reliability.'
+    }
+  ],
+
+  'service-business': [
+    {
+      q: 'Why does the course insist your first service comes from a skills inventory rather than a business idea?',
+      options: [
+        'Business ideas require patents and legal review',
+        'Skills you already find easy — that others find painful — are proven, deliverable value; "easy for you, painful for them" is the definition of a market',
+        'Inventories are required for business licenses',
+        'New ideas are always riskier than old ones'
+      ],
+      answer: 1,
+      explain: 'You don’t need novelty — you need an honest audit of what you can already do that someone will pay to not do themselves, backed by proof.'
+    },
+    {
+      q: 'For a clearly defined scope of work, why does the course recommend flat pricing over hourly?',
+      options: [
+        'Flat pricing is legally simpler in most states',
+        'Hourly billing punishes speed, caps income at your calendar, and makes buyers anxious about the meter — flat pricing sells a known outcome at a known price',
+        'Clients always pay more under flat pricing',
+        'Hourly rates require certified time-tracking software'
+      ],
+      answer: 1,
+      explain: 'With defined scope, flat pricing aligns everyone: the buyer gets certainty, and you get rewarded for efficiency instead of penalized for it.'
+    },
+    {
+      q: 'The recommended way to get your first one or two clients is:',
+      options: [
+        'Work free indefinitely until someone offers to pay',
+        'Buy local ads and wait for calls',
+        'A genuine discount in exchange for two named deliverables — honest feedback and, if satisfied, a testimonial and referral',
+        'Cold-call fifty strangers from a purchased list'
+      ],
+      answer: 2,
+      explain: 'It’s buying proof at a fair price, with a stated endpoint. Open-ended free work teaches clients your work has no value; a reasoned discount signals the full price is coming.'
+    }
+  ],
+
+  'market-yourself': [
+    {
+      q: 'Which statement is a working positioning sentence by the course’s formula?',
+      options: [
+        '"I’m exploring freelance opportunities in several areas."',
+        '"I help small landlords keep their books clean and their taxes ready."',
+        '"I’m a passionate, detail-oriented professional."',
+        '"I do bookkeeping, marketing, tutoring, and tech support."'
+      ],
+      answer: 1,
+      explain: 'Who you serve + the problem you remove + the outcome. Referrals travel as a single repeatable sentence — and nobody can refer fog or a list of four unrelated services.'
+    },
+    {
+      q: 'The course’s channel strategy for a new independent professional is:',
+      options: [
+        'Maintain presence on five platforms so no buyer is missed',
+        'One channel where your buyers actually are, worked on a fixed weekly rhythm for 30 days before considering a second',
+        'Paid advertising first, organic later',
+        'Post daily on whichever platform is trending'
+      ],
+      answer: 1,
+      explain: 'Scattered effort produces five invisible presences. Consistency on one buyer-appropriate channel — with engineered referral asks — is what actually produces clients at small scale.'
+    },
+    {
+      q: 'A prospect says your price is too high. The recommended response is:',
+      options: [
+        'Cut your rate 20% to save the deal',
+        'Hold the price and end the conversation',
+        'Reduce the scope — "we could start with just the last quarter, which brings it to X" — keeping your rate intact',
+        'Offer unlimited revisions at the same price'
+      ],
+      answer: 2,
+      explain: 'Resizing scope respects the budget and your value. Cutting the rate teaches the client the price was padded — and trains your market to negotiate every invoice.'
+    }
+  ],
+
+  'money-basics': [
+    {
+      q: 'Why is a separate business account the highest-leverage first financial habit?',
+      options: [
+        'Banks legally require it before you invoice',
+        'It makes profitability visible at a glance, turns tax preparation into an export instead of an excavation, and makes you treat the business like a business',
+        'It automatically raises your credit score',
+        'It eliminates the need for bookkeeping entirely'
+      ],
+      answer: 1,
+      explain: 'Separation creates visibility, tax readiness, and psychological legitimacy. It doesn’t replace the ledger — the two together are minimum viable bookkeeping.'
+    },
+    {
+      q: 'A client mid-project says, "While you’re at it, could you also handle X?" The professional response is:',
+      options: [
+        'Do it — keeping clients happy comes first',
+        'Refuse: no changes after a contract, ever',
+        '"Happy to add that — it’s outside our original scope, so I’ll send a quick quote for the addition."',
+        'Do it this once and silently raise the next invoice'
+      ],
+      answer: 2,
+      explain: 'The change order controls scope creep while staying friendly. Silent absorption of extras is the quiet killer of service income — and silent surcharges destroy trust.'
+    },
+    {
+      q: 'What does the course say about the tax set-aside for independent income?',
+      options: [
+        'Taxes only apply once you form an LLC',
+        'Automatically move a fixed percentage of every payment (commonly cited guidance: 25–30%) to a separate account — and confirm your exact rate and quarterly obligations with a qualified tax professional',
+        'Wait until year-end and pay whatever is billed',
+        'Set aside 5% — self-employment taxes are minimal'
+      ],
+      answer: 1,
+      explain: 'Independent income arrives untaxed, and self-employment adds obligations employees never see. The mechanism (automatic, every payment) is non-negotiable; the exact percentage is a professional-consult item.'
+    }
   ]
 };
 
@@ -968,7 +1554,7 @@ const CRISIS_RESOURCES = [
 const LOCAL_RESOURCES = [
   {
     id: 'findtreatment',
-    icon: '🧠',
+    icon: 'map-pin',
     name: 'FindTreatment.gov',
     detail: 'Official, confidential U.S. government locator for mental health and substance-use treatment near you. Filter by payment options, including free and sliding-scale care.',
     linkText: 'Find treatment near',
@@ -976,7 +1562,7 @@ const LOCAL_RESOURCES = [
   },
   {
     id: 'psychtoday',
-    icon: '💬',
+    icon: 'message',
     name: 'Psychology Today Therapist Finder',
     detail: 'Browse therapist profiles in your area — filter by insurance, specialty, price, and telehealth availability.',
     linkText: 'Browse therapists near',
@@ -984,7 +1570,7 @@ const LOCAL_RESOURCES = [
   },
   {
     id: 'twooneone',
-    icon: '🤝',
+    icon: 'phone',
     name: '211 Community Resources',
     detail: 'Free, confidential help finding local mental health services, support groups, food, housing, and financial assistance. You can also dial 2-1-1 from any phone.',
     linkText: 'Search 211 services for',
@@ -992,7 +1578,7 @@ const LOCAL_RESOURCES = [
   },
   {
     id: 'nami',
-    icon: '🌻',
+    icon: 'users',
     name: 'NAMI — National Alliance on Mental Illness',
     detail: 'Free peer support groups, family programs, and education through local NAMI affiliates. HelpLine: 1-800-950-6264 (M–F, 10am–10pm ET).',
     linkText: 'Find your local NAMI',
@@ -1003,7 +1589,7 @@ const LOCAL_RESOURCES = [
 const LIBRARY_RESOURCES = [
   {
     id: 'maps-libraries',
-    icon: '📚',
+    icon: 'library',
     name: 'Public Libraries Near You',
     detail: 'Libraries are free learning hubs: internet, computers, quiet study space, résumé help, and librarians who genuinely want to help.',
     linkText: 'Map public libraries near',
@@ -1011,7 +1597,7 @@ const LIBRARY_RESOURCES = [
   },
   {
     id: 'libby',
-    icon: '📱',
+    icon: 'smartphone',
     name: 'Libby — Free eBooks & Audiobooks',
     detail: 'With any library card, borrow ebooks and audiobooks free on your phone. Ask your local branch for a card — most issue them same-day.',
     linkText: 'Get the Libby app',
