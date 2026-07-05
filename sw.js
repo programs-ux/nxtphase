@@ -3,7 +3,7 @@
    Fonts: cache-first. The Wellness Hub ZIP lookup passes through untouched
    and already degrades gracefully offline. */
 
-const CACHE = 'nxtphase-shell-v3';
+const CACHE = 'nxtphase-shell-v4';
 const SHELL = [
   './',
   './index.html',

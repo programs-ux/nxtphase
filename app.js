@@ -214,7 +214,7 @@ window.addEventListener('popstate', (e) => {
   if (!state.user) return;
   _quiz = null; // an in-progress quiz doesn't survive history jumps
   const s = e.state || { view: 'dashboard' };
-  const view = s.view && ['dashboard', 'courses', 'detail', 'lesson', 'wellness', 'settings'].includes(s.view)
+  const view = s.view && ['dashboard', 'courses', 'detail', 'lesson', 'program', 'wellness', 'settings'].includes(s.view)
     ? s.view : 'dashboard';
   navigate(view, { courseId: s.courseId, lesson: s.lesson }, { fromHistory: true });
 });
@@ -235,6 +235,7 @@ function toggleTheme() {
 const NAV_ITEMS = [
   { id: 'dashboard', label: 'Home', ico: 'home' },
   { id: 'courses',   label: 'Courses', ico: 'book' },
+  { id: 'program',   label: 'Program', ico: 'users' },
   { id: 'wellness',  label: 'Wellness', ico: 'heart' },
   { id: 'settings',  label: 'Settings', ico: 'sliders' }
 ];
@@ -292,6 +293,7 @@ function renderApp() {
     case 'courses':  main.innerHTML = renderCourses(); break;
     case 'detail':   main.innerHTML = renderCourseDetail(); break;
     case 'lesson':   main.innerHTML = renderLesson(); break;
+    case 'program':  main.innerHTML = renderProgram(); break;
     case 'wellness': main.innerHTML = renderWellness(); break;
     case 'settings': main.innerHTML = renderSettings(); break;
     default:         main.innerHTML = renderDashboard();
@@ -308,7 +310,7 @@ function renderOnboarding() {
     <div class="card onboard-card">
       <span class="onboard-owl">${owlMark(64)}</span>
       <h1><span style="color:var(--gold)">NXT</span> Phase Learning</h1>
-      <p class="sub">Professional, self-paced courses in the skills employers rank highest — free, private, and on any device.</p>
+      <p class="sub">A 50-topic learning path with self-paced courses, live discussion, community support, and practical tools for your next phase.</p>
 
       <div class="field">
         <label for="ob-name">What should we call you?</label>
@@ -332,7 +334,7 @@ function renderOnboarding() {
         <button class="btn btn-gold btn-block" onclick="completeOnboarding()">Start learning</button>
       </div>
 
-      <p class="privacy-note"><strong>Your privacy:</strong> everything you enter stays on this device — nothing is sent to a server, and there is no account to create. You can export or erase your data at any time in Settings.</p>
+      <p class="privacy-note"><strong>Your privacy:</strong> your learning profile and progress stay on this device. External community, Zoom, feedback, and Wellness links open outside the app. You can export or erase your saved progress at any time in Settings.</p>
     </div>
   </div>`;
 }
@@ -394,13 +396,14 @@ function renderDashboard() {
   <div class="container">
     <section class="hero">
       <p class="eyebrow">${greeting()}</p>
-      <h1>${state.user.name ? `${name}, build skills the market pays for` : 'Build skills the market pays for'}</h1>
-      <p>Courses built around the competencies employers rank highest worldwide — so your value holds in any economic environment, as an employee or as a business of your own.</p>
+      <h1>${state.user.name ? `${name}, build your next phase with structure and support` : 'Build your next phase with structure and support'}</h1>
+      <p>Explore 50 practical topics across personal growth, professional achievement, workforce readiness, technical foundations, and independent work — then bring your progress into the live community.</p>
       <div class="hero-cta-row">
         ${cont
           ? `<button class="btn btn-gold" onclick="navigate('detail',{courseId:'${cont.id}'})">Continue: ${escapeHtml(cont.title)}</button>`
           : `<button class="btn btn-gold" onclick="navigate('courses')">Start a course</button>`}
-        <button class="btn btn-outline" onclick="navigate('wellness')">Wellness Hub</button>
+        <a class="btn btn-outline" href="${PROGRAM_LINKS.whatsapp}" target="_blank" rel="noopener noreferrer">${icon('users', 15)} Join WhatsApp</a>
+        <button class="btn btn-outline" onclick="navigate('program')">Live program</button>
       </div>
       <div class="hero-stats" role="group" aria-label="Your progress">
         <div class="stat-chip"><div class="num">${t.lessons}</div><div class="lbl">Lessons completed</div></div>
@@ -430,6 +433,32 @@ function renderDashboard() {
         “${q.text}”
         <span class="qa">— ${q.author}</span>
       </blockquote>
+    </section>
+
+    <section class="section" aria-label="Program links">
+      <div class="program-action-grid">
+        <a class="card resource-card program-action" href="${PROGRAM_LINKS.whatsapp}" target="_blank" rel="noopener noreferrer">
+          <span class="ri">${icon('users', 24)}</span>
+          <span>
+            <span class="rn">Join the WhatsApp community</span>
+            <span class="rd">Announcements, encouragement, accountability, and questions between live sessions.</span>
+          </span>
+        </a>
+        <a class="card resource-card program-action" href="${PROGRAM_LINKS.zoom}" target="_blank" rel="noopener noreferrer">
+          <span class="ri">${icon('message', 24)}</span>
+          <span>
+            <span class="rn">${PROGRAM_LIVE_SESSION.title} on Zoom</span>
+            <span class="rd">${PROGRAM_LINKS.zoomSchedule}. Meeting ID ${PROGRAM_LINKS.zoomMeetingId}; passcode ${PROGRAM_LINKS.zoomPasscode}.</span>
+          </span>
+        </a>
+        <a class="card resource-card program-action" href="${PROGRAM_LINKS.learningApp}" target="_blank" rel="noopener noreferrer">
+          <span class="ri">${icon('monitor', 24)}</span>
+          <span>
+            <span class="rn">Open the companion app</span>
+            <span class="rd">Use the NXT Phase Learning app for extra practice, self-paced review, and additional information.</span>
+          </span>
+        </a>
+      </div>
     </section>
 
     <section class="section">
@@ -477,6 +506,96 @@ function renderDashboard() {
 }
 
 /* ============================================================
+   PROGRAM / COMMUNITY
+   ============================================================ */
+
+function renderProgram() {
+  return `
+  <div class="container">
+    <section class="program-hero">
+      <p class="eyebrow">Live learning + self-paced practice</p>
+      <h1>NXT Phase Program</h1>
+      <p>Use the community for momentum, the live Zoom discussion for reflection and accountability, and the app for extra practice between sessions.</p>
+      <div class="hero-cta-row">
+        <a class="btn btn-gold" href="${PROGRAM_LINKS.whatsapp}" target="_blank" rel="noopener noreferrer">${icon('users', 15)} Join the WhatsApp community</a>
+        <a class="btn btn-outline" href="${PROGRAM_LINKS.zoom}" target="_blank" rel="noopener noreferrer">${icon('message', 15)} ${PROGRAM_LINKS.zoomLabel}</a>
+        <a class="btn btn-outline" href="${PROGRAM_LINKS.learningApp}" target="_blank" rel="noopener noreferrer">${icon('external', 15)} Open the app</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Live Zoom discussion</h2></div>
+      <div class="card program-session">
+        <div>
+          <span class="pill">Guided evening discussion</span>
+          <h3>${PROGRAM_LIVE_SESSION.title}</h3>
+          <p class="program-muted">${PROGRAM_LIVE_SESSION.cadence} via ${PROGRAM_LIVE_SESSION.platform}</p>
+        </div>
+        <div class="program-meeting-box">
+          <div><strong>Meeting ID</strong><span>${PROGRAM_LINKS.zoomMeetingId}</span></div>
+          <div><strong>Passcode</strong><span>${PROGRAM_LINKS.zoomPasscode}</span></div>
+        </div>
+        <div>
+          <h3>Discussion prompts</h3>
+          <ol class="program-list">
+            ${PROGRAM_LIVE_SESSION.prompts.map(p => `<li>${escapeHtml(p)}</li>`).join('')}
+          </ol>
+          <div class="program-reflection">
+            <span>Personal reflection</span>
+            <p>${escapeHtml(PROGRAM_LIVE_SESSION.reflection)}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>How to use the program</h2></div>
+      <div class="card-grid">
+        ${PROGRAM_RHYTHM.map(step => `
+          <div class="card program-step">
+            <span class="pn">${escapeHtml(step.name)}</span>
+            <span class="pd">${escapeHtml(step.detail)}</span>
+          </div>
+        `).join('')}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Learning map</h2></div>
+      <div class="card">
+        <p class="program-muted">The catalog now includes ${COURSES.length} topics across five skill areas. The structure draws from reflective personal development, achievement psychology, workforce readiness, open technical learning, networking foundations, cybersecurity, automation, cloud infrastructure, and independent-work skills.</p>
+        <div class="program-map">
+          ${PILLARS.map(p => {
+            const count = getCoursesByPillar(p.id).length;
+            return `
+            <div class="program-map-item">
+              <span style="color:${p.color}">${icon(p.icon, 20)}</span>
+              <strong>${p.label}</strong>
+              <span>${count} topics</span>
+            </div>`;
+          }).join('')}
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="navigate('courses')">Explore all ${COURSES.length} topics</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>Further learning references</h2></div>
+      <div class="source-grid">
+        ${PROGRAM_REFERENCES.map(r => `
+          <a class="card source-card" href="${r.url}" target="_blank" rel="noopener noreferrer">
+            <span class="rn">${escapeHtml(r.name)}</span>
+            <span class="rd">${escapeHtml(r.detail)}</span>
+            <span class="source-link">Open reference ${icon('external', 13)}</span>
+          </a>
+        `).join('')}
+      </div>
+      <p class="disclaimer">These references are for orientation and additional study. NXT Phase Learning is independent and does not claim affiliation or endorsement.</p>
+    </section>
+  </div>`;
+}
+
+/* ============================================================
    COURSE CATALOG
    ============================================================ */
 
@@ -516,7 +635,7 @@ function renderCourses() {
   return `
   <div class="container">
     <h1>Course Library</h1>
-    <p style="color:var(--text-dim); max-width:72ch">Every course is free, self-paced, and takes under an hour — and every lesson can be played as audio. Curriculum is aligned to the skills employers rank highest in global workforce research. Start with <strong>Foundational</strong> courses to build transferable base skills, then advance to <strong>Core</strong>.</p>
+    <p style="color:var(--text-dim); max-width:76ch">Explore ${COURSES.length} self-paced topics across reflective personal development, achievement-focused professional skills, workforce readiness, networking, cybersecurity, automation, cloud infrastructure, open technical learning, and independent work. Every lesson can be played as audio. Start with <strong>Foundational</strong> courses, then advance to <strong>Core</strong>.</p>
     <div class="filter-row" role="group" aria-label="Filter courses by level">
       ${levels.map(f => `
         <button class="filter-chip ${_levelFilter === f ? 'active' : ''}" onclick="setLevelFilter('${f}')" ${_levelFilter === f ? 'aria-pressed="true"' : 'aria-pressed="false"'}>${f === 'All' ? 'All levels' : f}</button>
@@ -914,6 +1033,22 @@ function renderSettings() {
     </section>
 
     <section class="section card settings-list">
+      <h2>Program links</h2>
+      <div class="setting-row">
+        <div><div class="sl">WhatsApp community</div><div class="sd">Join the group for announcements, reminders, questions, and accountability.</div></div>
+        <a class="btn btn-outline btn-sm" href="${PROGRAM_LINKS.whatsapp}" target="_blank" rel="noopener noreferrer">${icon('users', 14)} Join</a>
+      </div>
+      <div class="setting-row">
+        <div><div class="sl">${PROGRAM_LIVE_SESSION.title} Zoom</div><div class="sd">${PROGRAM_LINKS.zoomSchedule}. Meeting ID ${PROGRAM_LINKS.zoomMeetingId}; passcode ${PROGRAM_LINKS.zoomPasscode}.</div></div>
+        <a class="btn btn-outline btn-sm" href="${PROGRAM_LINKS.zoom}" target="_blank" rel="noopener noreferrer">${icon('message', 14)} Join Zoom</a>
+      </div>
+      <div class="setting-row">
+        <div><div class="sl">Companion app</div><div class="sd">Open the NXT Phase Learning app for additional information and practice.</div></div>
+        <a class="btn btn-outline btn-sm" href="${PROGRAM_LINKS.learningApp}" target="_blank" rel="noopener noreferrer">${icon('external', 14)} Open app</a>
+      </div>
+    </section>
+
+    <section class="section card settings-list">
       <h2>Share feedback</h2>
       <p class="sd" style="color:var(--text-dim);font-size:0.9rem">NXT Phase is in its pilot phase — your honest feedback shapes what it becomes.</p>
       <div class="field" style="margin-top:2px">
@@ -925,7 +1060,7 @@ function renderSettings() {
 
     <section class="section card settings-list">
       <h2>Your data & privacy</h2>
-      <p class="sd" style="color:var(--text-dim);font-size:0.9rem">Everything lives on this device: your name, focus areas, and progress (${t.lessons} lessons across ${t.started} courses). No account, no server, no tracking. ZIP codes entered in the Wellness Hub are never stored.</p>
+      <p class="sd" style="color:var(--text-dim);font-size:0.9rem">Your saved app profile and progress live on this device: your name, focus areas, and progress (${t.lessons} lessons across ${t.started} courses). No account, no learning-data server, no tracking. External links such as WhatsApp, Zoom, feedback email, the companion app, and Wellness resources open outside NXT Phase Learning. ZIP codes entered in the Wellness Hub are never stored.</p>
       <div class="setting-row">
         <div><div class="sl">Export my data</div><div class="sd">Download everything as a JSON file.</div></div>
         <button class="btn btn-outline btn-sm" onclick="exportData()">${icon('download', 14)} Export</button>
@@ -1020,7 +1155,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   // Honor a top-level view hash (e.g. shared link to #wellness)
   const hashView = location.hash.replace('#', '');
-  if (state.user && ['dashboard', 'courses', 'wellness', 'settings'].includes(hashView)) {
+  if (state.user && ['dashboard', 'courses', 'program', 'wellness', 'settings'].includes(hashView)) {
     state.view = hashView;
   }
   try {
