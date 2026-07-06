@@ -582,6 +582,13 @@ input:focus, textarea:focus, select:focus { border-color: var(--gold); outline: 
   border-bottom: 1px solid var(--line);
 }
 .listen-hint { font-size: 0.8rem; color: var(--text-dim); }
+.listen-row:empty { display: none; }
+.listen-row audio { flex: 1 1 260px; min-width: 220px; height: 38px; }
+.narr-label {
+  font-weight: 800; font-size: 0.85rem; color: var(--gold);
+  display: inline-flex; gap: 6px; align-items: center; white-space: nowrap;
+}
+[data-theme="dark"] .narr-label { color: var(--gold-strong); }
 
 .filter-row { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
 .filter-chip {

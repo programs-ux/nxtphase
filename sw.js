@@ -3,7 +3,7 @@
    Fonts: cache-first. The Wellness Hub ZIP lookup passes through untouched
    and already degrades gracefully offline. */
 
-const CACHE = 'nxtphase-shell-v4';
+const CACHE = 'nxtphase-shell-v6';
 const SHELL = [
   './',
   './index.html',
@@ -33,9 +33,13 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(e.request.url);
 
   if (url.origin === location.origin) {
-    // Network-first so edits/updates show up; cached shell when offline.
+    // Network-first with forced revalidation ('no-cache') so the browser's
+    // HTTP heuristic cache can never pin a stale app shell. Cached copy when offline.
+    const fresh = e.request.mode === 'navigate'
+      ? fetch(e.request.url, { cache: 'no-cache' })
+      : fetch(e.request, { cache: 'no-cache' });
     e.respondWith(
-      fetch(e.request)
+      fresh
         .then((res) => {
           const copy = res.clone();
           caches.open(CACHE).then((c) => c.put(e.request, copy));

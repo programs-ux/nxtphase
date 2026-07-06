@@ -144,7 +144,25 @@ function speechSupported() {
 function stopListening() {
   if (speechSupported()) window.speechSynthesis.cancel();
   _speaking = false;
+  if (_narrAudio) {
+    try { _narrAudio.pause(); } catch (e) { /* already detached */ }
+    _narrAudio = null;
+  }
   updateListenBtn();
+}
+
+let _voice; // best available system voice, resolved lazily
+function pickVoice() {
+  if (_voice !== undefined) return _voice;
+  const vs = window.speechSynthesis.getVoices();
+  const en = vs.filter(v => /^en/i.test(v.lang));
+  _voice = en.find(v => /premium|enhanced|natural|neural/i.test(v.name))
+    || en.find(v => /samantha|siri|google us english/i.test(v.name))
+    || en.find(v => v.lang === 'en-US') || en[0] || null;
+  return _voice;
+}
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.onvoiceschanged = () => { _voice = undefined; };
 }
 
 function toggleListen(courseId, idx) {
@@ -167,9 +185,11 @@ function toggleListen(courseId, idx) {
   if (buf.trim()) chunks.push(buf);
 
   window.speechSynthesis.cancel();
+  const v = pickVoice();
   chunks.forEach((chunk, i) => {
     const u = new SpeechSynthesisUtterance(chunk);
-    u.rate = 1;
+    if (v) u.voice = v;
+    u.rate = 0.95;
     if (i === chunks.length - 1) {
       u.onend = () => { _speaking = false; updateListenBtn(); };
     }
@@ -178,6 +198,56 @@ function toggleListen(courseId, idx) {
   });
   _speaking = true;
   updateListenBtn();
+}
+
+/* ---- human narration (recorded via studio.html, published to audio/) ---- */
+
+const _narrCache = {};
+let _narrAudio = null;
+
+async function findNarration(courseId, idx) {
+  const key = courseId + '-' + idx;
+  if (key in _narrCache) return _narrCache[key];
+  let found = null;
+  for (const ext of ['m4a', 'mp3', 'webm']) {
+    try {
+      const r = await fetch('audio/' + key + '.' + ext, { method: 'HEAD' });
+      if (r.ok) { found = 'audio/' + key + '.' + ext; break; }
+    } catch (e) { /* offline — fall through to auto voice */ }
+  }
+  _narrCache[key] = found;
+  return found;
+}
+
+function ttsButtonHtml(courseId, idx) {
+  if (!speechSupported()) return '';
+  return `
+      <button id="listen-btn" class="btn btn-outline btn-sm" onclick="toggleListen('${courseId}',${idx})" aria-pressed="false">
+        ${icon('volume', 14)} Listen to this lesson
+      </button>
+      <span class="listen-hint">Audio mode — learn while you commute, cook, or multitask.</span>`;
+}
+
+async function initLessonNarration() {
+  const c = getCourseById(state.currentCourse);
+  if (!c) return;
+  const idx = Math.min(state.currentLesson, c.lessons.length - 1);
+  if (!c.lessons[idx] || c.lessons[idx].type === 'quiz') return;
+  const src = await findNarration(c.id, idx);
+  const row = document.getElementById('listen-row');
+  if (!src || !row) return;
+  // Still on the same lesson? (user may have navigated during the check)
+  if (state.view !== 'lesson' || state.currentCourse !== c.id || state.currentLesson !== idx) return;
+  row.innerHTML = `
+      <span class="narr-label">${icon('volume', 14)} Narrated lesson</span>
+      <audio id="narr-audio" controls preload="none" src="${src}"></audio>
+      <span class="listen-hint">Recorded narration — learn while you commute, cook, or multitask.</span>`;
+  _narrAudio = document.getElementById('narr-audio');
+  _narrAudio.onerror = () => {
+    // Browser can't play this format — fall back to the auto voice.
+    row.innerHTML = ttsButtonHtml(c.id, idx);
+    _narrAudio = null;
+  };
 }
 
 function updateListenBtn() {
@@ -298,6 +368,7 @@ function renderApp() {
     case 'settings': main.innerHTML = renderSettings(); break;
     default:         main.innerHTML = renderDashboard();
   }
+  if (state.view === 'lesson') initLessonNarration();
 }
 
 /* ============================================================
@@ -750,13 +821,7 @@ function renderLesson() {
     </div>
     <article class="card">
       <h2>${l.title}</h2>
-      ${speechSupported() ? `
-      <div class="listen-row">
-        <button id="listen-btn" class="btn btn-outline btn-sm" onclick="toggleListen('${c.id}',${idx})" aria-pressed="false">
-          ${icon('volume', 14)} Listen to this lesson
-        </button>
-        <span class="listen-hint">Audio mode — learn while you commute, cook, or multitask.</span>
-      </div>` : ''}
+      <div class="listen-row" id="listen-row">${ttsButtonHtml(c.id, idx)}</div>
       <div class="lesson-body">${l.content}</div>
     </article>
     <div class="lesson-nav-row">

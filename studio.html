@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>NXT Phase — Voiceover Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <style>
+    .studio-wrap { max-width: 860px; margin: 0 auto; padding: 26px 20px 80px; }
+    .studio-head { display: flex; align-items: center; gap: 12px; margin-bottom: 6px; }
+    .studio-head .owl { color: var(--gold); line-height: 0; }
+    .studio-sub { color: var(--text-dim); font-size: 0.95rem; max-width: 66ch; }
+    .studio-grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; margin-top: 20px; }
+    @media (max-width: 640px) { .studio-grid { grid-template-columns: 1fr; } }
+    .teleprompter {
+      margin-top: 16px; padding: 26px; max-height: 46vh; overflow-y: auto;
+      font-size: 1.18rem; line-height: 1.9;
+    }
+    .teleprompter h4 { color: var(--gold); text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.09em; }
+    .rec-bar {
+      position: sticky; bottom: 0; margin-top: 16px;
+      background: var(--card-raised); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 16px 18px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+      box-shadow: var(--shadow);
+    }
+    .rec-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--line); flex-shrink: 0; }
+    .rec-dot.live { background: #E5484D; animation: pulse 1.2s infinite; }
+    @keyframes pulse { 50% { opacity: 0.35; } }
+    .rec-time { font-weight: 800; font-variant-numeric: tabular-nums; min-width: 52px; }
+    .rec-file { font-size: 0.8rem; color: var(--text-dim); width: 100%; }
+    .tips { font-size: 0.88rem; color: var(--text-dim); }
+    .tips li { margin: 6px 0; }
+    audio { width: 100%; margin-top: 10px; }
+  </style>
+</head>
+<body data-theme="dark">
+  <div class="studio-wrap">
+    <div class="studio-head">
+      <span class="owl" id="owl-slot"></span>
+      <h1>Voiceover Studio</h1>
+    </div>
+    <p class="studio-sub">Record lessons in <strong>your own voice</strong>. Pick a lesson, read the teleprompter naturally, and download the audio file. Any lesson with a recording plays your voice in the app instead of the automatic one. Recordings never leave this device until you choose to publish them.</p>
+
+    <div class="studio-grid">
+      <div class="field" style="margin-top:0">
+        <label for="course-sel">Course</label>
+        <select id="course-sel"></select>
+      </div>
+      <div class="field" style="margin-top:0">
+        <label for="lesson-sel">Lesson</label>
+        <select id="lesson-sel"></select>
+      </div>
+    </div>
+
+    <div class="card teleprompter" id="teleprompter" aria-label="Lesson text to read"></div>
+
+    <div class="rec-bar">
+      <span class="rec-dot" id="rec-dot"></span>
+      <span class="rec-time" id="rec-time">0:00</span>
+      <button class="btn btn-gold btn-sm" id="rec-btn">Start recording</button>
+      <button class="btn btn-outline btn-sm" id="dl-btn" disabled>Download recording</button>
+      <span class="rec-file" id="rec-file"></span>
+      <div id="preview-slot" style="width:100%"></div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>Reading naturally — quick tips</h3>
+      <ul class="tips" style="padding-left:20px; margin-top:8px">
+        <li><strong>Talk, don't announce.</strong> Imagine explaining this to one person across a table, not addressing a room.</li>
+        <li><strong>Slow down about 10%</strong> from your normal pace, and let punctuation breathe — pause at periods.</li>
+        <li><strong>Mistakes are fine:</strong> pause, then re-say the whole sentence. Or just re-record — takes are cheap.</li>
+        <li><strong>Room sound:</strong> soft furnishings beat empty rooms. Phone earbuds with a mic work surprisingly well.</li>
+        <li><strong>Publishing:</strong> put downloaded files in the <code>nxtphase/audio/</code> folder (keep the file name exactly as generated), then ask Claude to deploy. The app picks them up automatically.</li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script>
+    // Owl mark (matches app)
+    document.getElementById('owl-slot').innerHTML = '<svg width="40" height="40" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M10 13 7.5 5.5 15 9" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M38 13 40.5 5.5 33 9" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M24 5C14.5 5 9 12 9 21.5 9 33 15.5 41 24 43c8.5-2 15-10 15-21.5C39 12 33.5 5 24 5z" stroke="currentColor" stroke-width="2.4"/><circle cx="17.2" cy="20.5" r="4.6" stroke="currentColor" stroke-width="2.2"/><circle cx="30.8" cy="20.5" r="4.6" stroke="currentColor" stroke-width="2.2"/><circle cx="17.2" cy="20.5" r="1.7" fill="currentColor"/><circle cx="30.8" cy="20.5" r="1.7" fill="currentColor"/><path d="M24 27 21 30.5h6L24 27z" fill="currentColor"/></svg>';
+
+    const courseSel = document.getElementById('course-sel');
+    const lessonSel = document.getElementById('lesson-sel');
+    const prompter = document.getElementById('teleprompter');
+    const recBtn = document.getElementById('rec-btn');
+    const dlBtn = document.getElementById('dl-btn');
+    const recDot = document.getElementById('rec-dot');
+    const recTime = document.getElementById('rec-time');
+    const recFile = document.getElementById('rec-file');
+    const previewSlot = document.getElementById('preview-slot');
+
+    COURSES.forEach(c => {
+      const o = document.createElement('option');
+      o.value = c.id; o.textContent = c.title;
+      courseSel.appendChild(o);
+    });
+
+    function fillLessons() {
+      lessonSel.innerHTML = '';
+      const c = COURSES.find(x => x.id === courseSel.value);
+      c.lessons.forEach((l, i) => {
+        if (l.type === 'quiz') return;
+        const o = document.createElement('option');
+        o.value = i; o.textContent = (i + 1) + '. ' + l.title;
+        lessonSel.appendChild(o);
+      });
+      fillPrompter();
+    }
+
+    function currentTarget() {
+      const c = COURSES.find(x => x.id === courseSel.value);
+      return { c, i: Number(lessonSel.value) };
+    }
+
+    function fillPrompter() {
+      const { c, i } = currentTarget();
+      const l = c.lessons[i];
+      prompter.innerHTML = '<h2>' + l.title + '</h2>' + l.content;
+      updateFileName();
+      resetRecording();
+    }
+
+    let mediaRecorder = null, chunks = [], blob = null, ext = 'webm', timer = null, seconds = 0;
+
+    function updateFileName() {
+      const { c, i } = currentTarget();
+      recFile.textContent = 'File will be saved as: ' + c.id + '-' + i + '.' + ext;
+    }
+
+    function resetRecording() {
+      blob = null; chunks = []; seconds = 0;
+      recTime.textContent = '0:00';
+      dlBtn.disabled = true;
+      previewSlot.innerHTML = '';
+    }
+
+    function fmt(s) { return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+
+    async function toggleRecord() {
+      if (mediaRecorder && mediaRecorder.state === 'recording') {
+        mediaRecorder.stop();
+        return;
+      }
+      let stream;
+      try {
+        stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+      } catch (e) {
+        alert('Microphone access is needed to record. Please allow the microphone and try again.');
+        return;
+      }
+      const mime = MediaRecorder.isTypeSupported('audio/mp4') ? 'audio/mp4'
+                 : MediaRecorder.isTypeSupported('audio/webm;codecs=opus') ? 'audio/webm;codecs=opus'
+                 : '';
+      ext = mime.startsWith('audio/mp4') ? 'm4a' : 'webm';
+      updateFileName();
+      resetRecording();
+      mediaRecorder = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined);
+      mediaRecorder.ondataavailable = (e) => { if (e.data.size) chunks.push(e.data); };
+      mediaRecorder.onstop = () => {
+        stream.getTracks().forEach(t => t.stop());
+        clearInterval(timer);
+        recDot.classList.remove('live');
+        recBtn.textContent = 'Re-record';
+        blob = new Blob(chunks, { type: mime || 'audio/webm' });
+        dlBtn.disabled = false;
+        const url = URL.createObjectURL(blob);
+        previewSlot.innerHTML = '';
+        const a = document.createElement('audio');
+        a.controls = true; a.src = url;
+        previewSlot.appendChild(a);
+      };
+      mediaRecorder.start();
+      recDot.classList.add('live');
+      recBtn.textContent = 'Stop recording';
+      seconds = 0;
+      timer = setInterval(() => { seconds++; recTime.textContent = fmt(seconds); }, 1000);
+    }
+
+    function download() {
+      if (!blob) return;
+      const { c, i } = currentTarget();
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = c.id + '-' + i + '.' + ext;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    courseSel.addEventListener('change', fillLessons);
+    lessonSel.addEventListener('change', fillPrompter);
+    recBtn.addEventListener('click', toggleRecord);
+    dlBtn.addEventListener('click', download);
+
+    fillLessons();
+  </script>
+</body>
+</html>
